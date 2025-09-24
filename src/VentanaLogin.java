@@ -46,6 +46,17 @@ public class VentanaLogin {
         txtClave.setBounds(50, 200,300,25);
         btnIngresar.setBounds(50, 240,300,25);
     }
+    public void login(){
+        String u = txtUsuario.getText();
+        String p = new String(txtClave.getPassword());
+        String nombre = validarCredenciales(u, p);
+        if (!nombre.isEmpty()) {
+            JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
+            new Menu();
+        } else{
+            JOptionPane.showMessageDialog(frame, "Usuario o clave incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
     private String validarCredenciales(String u, String p){
         for (Usuario usuarios : USUARIOS){
             if(usuarios.validarCredenciales(u,p)){
