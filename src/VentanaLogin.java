@@ -8,5 +8,11 @@ public class VentanaLogin {
 
     public VentanaLogin() {
         //llamar metodos
+        inicializarUsuarios();
+    }
+
+    public void inicializarUsuarios(){
+        USUARIOS.add(new Usuario("admin", "1234", "Administrador"));
+        USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
     }
 }
