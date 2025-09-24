@@ -22,6 +22,9 @@ public class VentanaLogin {
         USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
     }
     private void iniciarVentanaLogin(){
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400,400);
+        frame.setLayout(null);
         mostrarVentana();
     }
     public void mostrarVentana(){
