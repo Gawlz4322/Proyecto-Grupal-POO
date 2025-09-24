@@ -22,5 +22,11 @@ public class VentanaLogin {
         USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
     }
     private void iniciarVentanaLogin(){
+        mostrarVentana();
+    }
+    public void mostrarVentana(){
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
     }
 }
