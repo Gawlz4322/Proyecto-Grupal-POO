@@ -15,4 +15,6 @@ public class VentanaLogin {
         USUARIOS.add(new Usuario("admin", "1234", "Administrador"));
         USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
     }
+    private void iniciarVentanaLogin(){
+    }
 }
