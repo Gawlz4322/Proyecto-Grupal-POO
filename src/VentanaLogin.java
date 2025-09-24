@@ -15,6 +15,7 @@ public class VentanaLogin {
     public VentanaLogin() {
         inicializarUsuarios();
         iniciarVentanaLogin();
+        redireccionadorBotones();
     }
 
     public void inicializarUsuarios(){
@@ -64,6 +65,9 @@ public class VentanaLogin {
             }
         }
         return "";
+    }
+    public void redireccionadorBotones(){
+        btnIngresar.addActionListener(e -> login());
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(VentanaLogin::new);
