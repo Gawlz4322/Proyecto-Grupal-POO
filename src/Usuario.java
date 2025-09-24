@@ -8,8 +8,10 @@ public class Usuario {
         this.password = password;
         this.nombre = nombre;
     }
-    //no se ocupa aún
     public boolean validarCredenciales(String u, String p){
         return this.username.equals(u) && this.password.equals(p);
+    }
+    public String getNombre() {
+        return nombre;
     }
 }

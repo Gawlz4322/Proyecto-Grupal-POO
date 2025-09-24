@@ -46,6 +46,14 @@ public class VentanaLogin {
         txtClave.setBounds(50, 200,300,25);
         btnIngresar.setBounds(50, 240,300,25);
     }
+    private String validarCredenciales(String u, String p){
+        for (Usuario usuarios : USUARIOS){
+            if(usuarios.validarCredenciales(u,p)){
+                return usuarios.getNombre();
+            }
+        }
+        return "";
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(VentanaLogin::new);
     }
