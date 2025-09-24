@@ -5,7 +5,7 @@ import java.util.List;
 
 public class VentanaLogin {
     public static final List<Usuario> USUARIOS = new ArrayList<>();
-    private final JFrame frame = new JFrame("Login - Control de Finanzas Personales (CFP)");
+    private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
     private final JLabel lblUsuario = new JLabel("Usuario:");
     private final JTextField txtUsuario = new JTextField();
     private final JLabel lblClave = new JLabel("Clave:");
@@ -13,8 +13,8 @@ public class VentanaLogin {
     private final JButton btnIngresar = new JButton("Ingresar");
 
     public VentanaLogin() {
-        //llamar metodos
         inicializarUsuarios();
+        iniciarVentanaLogin();
     }
 
     public void inicializarUsuarios(){
@@ -45,5 +45,8 @@ public class VentanaLogin {
         lblClave.setBounds(50, 160,300,25);
         txtClave.setBounds(50, 200,300,25);
         btnIngresar.setBounds(50, 240,300,25);
+    }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(VentanaLogin::new);
     }
 }
