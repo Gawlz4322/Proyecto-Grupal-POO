@@ -53,7 +53,7 @@ public class VentanaLogin {
         String nombre = validarCredenciales(u, p);
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
-            new Menu();
+            new MenuPrincipal();
         } else{
             JOptionPane.showMessageDialog(frame, "Usuario o clave incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
         }
