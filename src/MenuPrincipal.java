@@ -2,6 +2,9 @@ import javax.swing.*;
 
 public class MenuPrincipal {
     //menu principal, se inicializa después de login
+    public MenuPrincipal() {
+        //aun no se crean los métodos.
+    }
 
     //preguntas iniciales, aparecen apenas cierra login y abre menu. Historial y display de dinero actual todavia no implementados
     public void preguntasInicialesMenu() {
@@ -14,6 +17,6 @@ public class MenuPrincipal {
         if (ingresos == JOptionPane.YES_OPTION) {
             String montoIngresos = JOptionPane.showInputDialog(null, "Ingrese el monto de ingresos:");
         }
-
     }
+
 }
