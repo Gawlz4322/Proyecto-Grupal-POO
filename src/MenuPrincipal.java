@@ -7,6 +7,12 @@ import java.util.List;
 public class MenuPrincipal {
     //menu principal, se inicializa después de login
     private final JFrame frame = new JFrame("Menú Principal - CFP");
+    private double saldo = 0;
+    private final List<String> historial = new ArrayList<>();
+    private final JLabel lblSaldo = new JLabel("Saldo actual: $0");
+    private final JButton btnGasto = new JButton("Añadir gasto");
+    private final JButton btnIngreso = new JButton("Añadir ingreso");
+    private final JButton btnHistorial = new JButton("Ver historial");
 
     public MenuPrincipal() {
         //aun no se crean los métodos.
