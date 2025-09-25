@@ -36,4 +36,7 @@ public class MenuPrincipal {
         btnIngreso.setBounds(50, 120, 300, 25);
         btnHistorial.setBounds(50, 160, 300, 25);
     }
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(MenuPrincipal::new);
+    }
 }
