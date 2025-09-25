@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
-
+// TODO: register. Solo soporta login por ahora
 public class VentanaLogin {
     public static final List<Usuario> USUARIOS = new ArrayList<>();
     private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
@@ -25,6 +25,7 @@ public class VentanaLogin {
     private void iniciarVentanaLogin(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400,400);
+        //cambiar a new GridLayout(x, y, z, w). Estetica, dejar para el final
         frame.setLayout(null);
         inicializarBotones();
         mostrarVentana();
@@ -46,6 +47,8 @@ public class VentanaLogin {
         lblClave.setBounds(50, 160,300,25);
         txtClave.setBounds(50, 200,300,25);
         btnIngresar.setBounds(50, 240,300,25);
+
+        frame.getRootPane().setDefaultButton(btnIngresar);
     }
     public void login(){
         String u = txtUsuario.getText();
@@ -53,9 +56,13 @@ public class VentanaLogin {
         String nombre = validarCredenciales(u, p);
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
+            frame.dispose();
             new MenuPrincipal();
         } else{
             JOptionPane.showMessageDialog(frame, "Usuario o clave incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
+            txtUsuario.setText("");
+            txtUsuario.requestFocus();
+            txtClave.setText("");
         }
     }
     private String validarCredenciales(String u, String p){
