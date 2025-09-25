@@ -90,5 +90,4 @@ public class VentanaLogin {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(VentanaLogin::new);
     }
-
 }
