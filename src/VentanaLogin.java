@@ -56,6 +56,17 @@ public class VentanaLogin {
         String nombre = validarCredenciales(u, p);
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
+            //preguntas iniciales antes de mostrar el menú. Están feas pero después vemos como arreglarlo :p
+            int gastos = JOptionPane.showConfirmDialog(frame, "¿Has realizado gastos?", "Gastos", JOptionPane.YES_NO_OPTION);
+            if (gastos == JOptionPane.YES_OPTION) {
+                String montoGastos = JOptionPane.showInputDialog(frame, "Ingrese el monto de gastos:");
+            }
+
+            // Pregunta inicial: ingresos
+            int ingresos = JOptionPane.showConfirmDialog(frame, "¿Has recibido ingresos?", "Ingresos", JOptionPane.YES_NO_OPTION);
+            if (ingresos == JOptionPane.YES_OPTION) {
+                String montoIngresos = JOptionPane.showInputDialog(frame, "Ingrese el monto de ingresos:");
+            }
             frame.dispose();
             new MenuPrincipal();
         } else{
