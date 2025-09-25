@@ -17,14 +17,23 @@ public class MenuPrincipal {
     public MenuPrincipal() {
         //aun no se crean los métodos.
         iniciarVentanaMenuPrincipal();
+        iniciarComponentes();
     }
 
     private void iniciarVentanaMenuPrincipal() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(null);
+        frame.setVisible(true);
     }
     private void iniciarComponentes() {
-
+        frame.add(lblSaldo);
+        frame.add(btnGasto);
+        frame.add(btnIngreso);
+        frame.add(btnHistorial);
+        lblSaldo.setBounds(50, 40, 300, 25);
+        btnGasto.setBounds(50, 80, 300, 25);
+        btnIngreso.setBounds(50, 120, 300, 25);
+        btnHistorial.setBounds(50, 160, 300, 25);
     }
 }
