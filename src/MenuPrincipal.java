@@ -63,6 +63,13 @@ public class MenuPrincipal {
                 }
             }
         });
+        btnHistorial.addActionListener(e -> {
+            if(historial.isEmpty()){
+                JOptionPane.showMessageDialog(frame, "No hay movimientos registrados","Historial",JOptionPane.INFORMATION_MESSAGE);
+            }else{
+                JOptionPane.showMessageDialog(frame, String.join("\n", historial), "Historial", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
         }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
