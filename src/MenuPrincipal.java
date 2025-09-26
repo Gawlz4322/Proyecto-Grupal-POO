@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,16 +41,28 @@ public class MenuPrincipal {
             String gasto = JOptionPane.showInputDialog(frame, "Monto del gasto:");
             if (gasto != null && !gasto.isEmpty()) {
                 try {
-                    double g = Double.parseDouble(gasto);
-                    saldo -= g;
-                    historial.add("Gasto: -$" + g);
+                    double gastoNuevo = Double.parseDouble(gasto);
+                    saldo -= gastoNuevo;
+                    historial.add("Gasto: -$" + gastoNuevo);
                     //actualizar saldo, metodo aun no creado
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(frame, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
             }
         });
-
+        btnIngreso.addActionListener(e -> {
+            String ingreso = JOptionPane.showInputDialog(frame, "Monto del ingreso:");
+            if (ingreso != null && !ingreso.isEmpty()) {
+                try {
+                    double ingresoNuevo = Double.parseDouble(ingreso);
+                    saldo += ingresoNuevo;
+                    historial.add("Ingreso: +$" + ingresoNuevo);
+                    //denuevo, hay que actualizar el saldo
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
         }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
