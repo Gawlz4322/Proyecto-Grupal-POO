@@ -18,6 +18,7 @@ public class MenuPrincipal {
         //aun no se crean los métodos.
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
+        redireccionadorBotones();
     }
 
     private void iniciarVentanaMenuPrincipal() {
@@ -35,6 +36,9 @@ public class MenuPrincipal {
         btnGasto.setBounds(250, 100, 300, 25);
         btnIngreso.setBounds(250, 160, 300, 25);
         btnHistorial.setBounds(250, 220, 300, 25);
+    }
+    private void redireccionadorBotones(){
+
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
