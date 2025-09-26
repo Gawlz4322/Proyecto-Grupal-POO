@@ -72,7 +72,7 @@ public class MenuPrincipal {
         });
     }
     private void actualizarDisplaySaldo(){
-        lblSaldo.setText(String.valueOf(saldo));
+        lblSaldo.setText("Saldo actual: $" + saldo);
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
