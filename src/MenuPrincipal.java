@@ -31,10 +31,10 @@ public class MenuPrincipal {
         frame.add(btnGasto);
         frame.add(btnIngreso);
         frame.add(btnHistorial);
-        lblSaldo.setBounds(50, 40, 300, 25);
-        btnGasto.setBounds(50, 80, 300, 25);
-        btnIngreso.setBounds(50, 120, 300, 25);
-        btnHistorial.setBounds(50, 160, 300, 25);
+        lblSaldo.setBounds(350, 40, 300, 25);
+        btnGasto.setBounds(250, 100, 300, 25);
+        btnIngreso.setBounds(250, 160, 300, 25);
+        btnHistorial.setBounds(250, 220, 300, 25);
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
