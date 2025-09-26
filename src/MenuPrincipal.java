@@ -14,17 +14,16 @@ public class MenuPrincipal {
     private final JButton btnHistorial = new JButton("Ver historial");
 
     public MenuPrincipal() {
-        //aun no se crean los métodos.
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
         redireccionadorBotones();
+        mostrarVentana();
     }
 
     private void iniciarVentanaMenuPrincipal() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 600);
         frame.setLayout(null);
-        frame.setVisible(true);
     }
     private void iniciarComponentes() {
         frame.add(lblSaldo);
@@ -74,6 +73,12 @@ public class MenuPrincipal {
     private void actualizarDisplaySaldo(){
         lblSaldo.setText("Saldo actual: $" + saldo);
     }
+    private void mostrarVentana() {
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
     }
