@@ -44,7 +44,7 @@ public class MenuPrincipal {
                     double gastoNuevo = Double.parseDouble(gasto);
                     saldo -= gastoNuevo;
                     historial.add("Gasto: -$" + gastoNuevo);
-                    //actualizar saldo, metodo aun no creado
+                    actualizarDisplaySaldo();
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(frame, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -57,7 +57,7 @@ public class MenuPrincipal {
                     double ingresoNuevo = Double.parseDouble(ingreso);
                     saldo += ingresoNuevo;
                     historial.add("Ingreso: +$" + ingresoNuevo);
-                    //denuevo, hay que actualizar el saldo
+                    actualizarDisplaySaldo();
                 } catch (NumberFormatException ex) {
                     JOptionPane.showMessageDialog(frame, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
                 }
@@ -70,7 +70,10 @@ public class MenuPrincipal {
                 JOptionPane.showMessageDialog(frame, String.join("\n", historial), "Historial", JOptionPane.INFORMATION_MESSAGE);
             }
         });
-        }
+    }
+    private void actualizarDisplaySaldo(){
+        lblSaldo.setText(String.valueOf(saldo));
+    }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
     }
