@@ -38,8 +38,21 @@ public class MenuPrincipal {
         btnHistorial.setBounds(250, 220, 300, 25);
     }
     private void redireccionadorBotones(){
+        btnGasto.addActionListener(e -> {
+            String gasto = JOptionPane.showInputDialog(frame, "Monto del gasto:");
+            if (gasto != null && !gasto.isEmpty()) {
+                try {
+                    double g = Double.parseDouble(gasto);
+                    saldo -= g;
+                    historial.add("Gasto: -$" + g);
+                    //actualizar saldo, metodo aun no creado
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(frame, "Debe ingresar un número válido", "Error", JOptionPane.ERROR_MESSAGE);
+                }
+            }
+        });
 
-    }
+        }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
     }
