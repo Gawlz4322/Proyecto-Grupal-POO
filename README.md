@@ -1,5 +1,1 @@
-Código subido por: Roberto Herrera
-MenuPrincipal por: Roberto Herrera/Miguel Díaz
-Usuario: Roberto Herrera/Miguel Díaz/Benyasmín Sanhueza
-Main: Benyasmín Sanhueza
-VentanaLogin: Roberto Herrera/Miguel Díaz
+El proyecto es una aplicación de Control de Finanzas Personales (CFP) desarrollada en Java con interfaz gráfica Swing.
