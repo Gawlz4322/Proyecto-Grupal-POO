@@ -1,5 +1,4 @@
 import javax.swing.*;
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 // TODO: register. Solo soporta login por ahora
@@ -56,19 +55,41 @@ public class VentanaLogin {
         String nombre = validarCredenciales(u, p);
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
-            //preguntas iniciales antes de mostrar el menú. Están feas pero después vemos como arreglarlo :p
+            double saldoInicial = 0.0;
+            
+            //preguntas iniciales antes de mostrar el menú
             int gastos = JOptionPane.showConfirmDialog(frame, "¿Has realizado gastos?", "Gastos", JOptionPane.YES_NO_OPTION);
             if (gastos == JOptionPane.YES_OPTION) {
                 String montoGastos = JOptionPane.showInputDialog(frame, "Ingrese el monto de gastos:");
+                if (montoGastos != null && !montoGastos.trim().isEmpty()) {
+                    try {
+                        double gastoInicial = Double.parseDouble(montoGastos);
+                        if (gastoInicial > 0) {
+                            saldoInicial -= gastoInicial;
+                        }
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(frame, "Monto de gasto inválido, se ignorará", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
             }
 
-            // Pregunta inicial: ingresos
             int ingresos = JOptionPane.showConfirmDialog(frame, "¿Has recibido ingresos?", "Ingresos", JOptionPane.YES_NO_OPTION);
             if (ingresos == JOptionPane.YES_OPTION) {
                 String montoIngresos = JOptionPane.showInputDialog(frame, "Ingrese el monto de ingresos:");
+                if (montoIngresos != null && !montoIngresos.trim().isEmpty()) {
+                    try {
+                        double ingresoInicial = Double.parseDouble(montoIngresos);
+                        if (ingresoInicial > 0) {
+                            saldoInicial += ingresoInicial;
+                        }
+                    } catch (NumberFormatException ex) {
+                        JOptionPane.showMessageDialog(frame, "Monto de ingreso inválido, se ignorará", "Advertencia", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
             }
+            
             frame.dispose();
-            new MenuPrincipal();
+            new MenuPrincipal(saldoInicial);
         } else{
             JOptionPane.showMessageDialog(frame, "Usuario o clave incorrecta", "Error", JOptionPane.ERROR_MESSAGE);
             txtUsuario.setText("");
@@ -85,7 +106,7 @@ public class VentanaLogin {
         return "";
     }
     public void redireccionadorBotones(){
-        btnIngresar.addActionListener(e -> login());
+        btnIngresar.addActionListener(__ -> login());
     }
     public static void main(String[] args) {
         SwingUtilities.invokeLater(VentanaLogin::new);
