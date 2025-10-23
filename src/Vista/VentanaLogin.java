@@ -1,5 +1,5 @@
 package Vista;
-
+import Modelo.SistemaFinanzas;
 import Modelo.Usuario;
 
 import javax.swing.*;
@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import java.util.List;
 // TODO: register. Solo soporta login por ahora
 public class VentanaLogin {
-    public static final List<Usuario> USUARIOS = new ArrayList<>();
     private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
     private final JLabel lblUsuario = new JLabel("Modelo.Usuario:");
     private final JTextField txtUsuario = new JTextField();
@@ -16,15 +15,10 @@ public class VentanaLogin {
     private final JButton btnIngresar = new JButton("Ingresar");
 
     public VentanaLogin() {
-        inicializarUsuarios();
         iniciarVentanaLogin();
         redireccionadorBotones();
     }
 
-    public void inicializarUsuarios(){
-        USUARIOS.add(new Usuario("admin", "1234", "Administrador"));
-        USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
-    }
     private void iniciarVentanaLogin(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(400,400);
@@ -101,14 +95,7 @@ public class VentanaLogin {
             txtClave.setText("");
         }
     }
-    private String validarCredenciales(String u, String p){
-        for (Usuario usuarios : USUARIOS){
-            if(usuarios.validarCredenciales(u,p)){
-                return usuarios.getNombre();
-            }
-        }
-        return "";
-    }
+
     public void redireccionadorBotones(){
         btnIngresar.addActionListener(__ -> login());
     }
