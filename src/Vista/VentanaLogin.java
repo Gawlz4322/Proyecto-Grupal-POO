@@ -1,10 +1,7 @@
 package Vista;
-import Modelo.SistemaFinanzas;
-import Modelo.Usuario;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
+
 // TODO: register. Solo soporta login por ahora
 public class VentanaLogin {
     private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
@@ -94,6 +91,12 @@ public class VentanaLogin {
             txtUsuario.requestFocus();
             txtClave.setText("");
         }
+    }
+    public String getUsuario(){
+        return txtUsuario.getText();
+    }
+    public String getClave(){
+        return new String(txtClave.getText());
     }
 
     public void redireccionadorBotones(){
