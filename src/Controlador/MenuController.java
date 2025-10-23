@@ -24,6 +24,18 @@ public class MenuController {
             }
         }
     }
+    public void manejarIngreso(){
+        String stringIngreso = Vista.pedirInput("Monto del ingreso:");
+        if(stringIngreso != null && !stringIngreso.isEmpty()){
+            try {
+                double ingresoNuevo = Double.parseDouble(stringIngreso);
+                Modelo.agregarGasto(ingresoNuevo);
+                actualizarSaldoVista();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido.");
+            }
+        }
+    }
     public void actualizarSaldoVista() {
         Vista.actualizarDisplaySaldo(Modelo.getSaldo());
     }
