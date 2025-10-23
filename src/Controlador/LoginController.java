@@ -19,6 +19,12 @@ public class LoginController {
         String nombre = Modelo.validarCredenciales(u, p);
         if (!nombre.isEmpty()){
             JOptionPane.showMessageDialog(null, "Bienvenido" + nombre); //null por mientras
+            if (Vista.preguntar("¿Haz realizado gastos?", "Gastos")){
+                manejarInput(Vista.pedirInput("Ingrese el monto de gastos:"), "gasto");
+            }
+            if (Vista.preguntar("¿Haz recibido ingresos?", "Ingresos")){
+                manejarInput(Vista.pedirInput("Ingrese el monto de ingresos:"), "ingreso");
+            }
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o Clave no valido");
         }
