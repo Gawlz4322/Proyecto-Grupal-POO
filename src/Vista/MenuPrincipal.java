@@ -1,12 +1,8 @@
 package Vista;
 
 import javax.swing.*;
-import java.util.ArrayList;
-import java.util.List;
-
 
 public class MenuPrincipal {
-    //menu principal, se inicializa después de login
     private final JFrame frame = new JFrame("Menú Principal - CFP");
     private final JLabel lblSaldo = new JLabel("Saldo actual: $0");
     private final JButton btnGasto = new JButton("Añadir gasto");
@@ -45,7 +41,7 @@ public class MenuPrincipal {
             }
         });
     }
-    public void actualizarDisplaySaldo(){
+    public void actualizarDisplaySaldo(double saldo){
         lblSaldo.setText("Saldo actual: $" + saldo);
     }
     private void mostrarVentana() {
