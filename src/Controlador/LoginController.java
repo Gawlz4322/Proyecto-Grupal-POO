@@ -17,6 +17,10 @@ public class LoginController {
         String u = Vista.getUsuario();
         String p = Vista.getClave();
         String nombre = Modelo.validarCredenciales(u, p);
-        //añadir aquí preguntas iniciales?
+        if (!nombre.isEmpty()){
+            //mensaje de bienvenida + preguntas iniciales
+        }else{
+            JOptionPane.showMessageDialog(null, "Usuario o Clave no valido");
+        }
     }
 }
