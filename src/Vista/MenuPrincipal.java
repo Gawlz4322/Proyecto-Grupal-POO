@@ -57,4 +57,7 @@ public class MenuPrincipal {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
     }
+    public String pedirInput(String mensaje) {
+        return JOptionPane.showInputDialog(frame, mensaje);
+    }
 }
