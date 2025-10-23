@@ -45,9 +45,6 @@ public class VentanaLogin {
         frame.getRootPane().setDefaultButton(btnIngresar);
     }
     public void login(){
-        String u = txtUsuario.getText();
-        String p = new String(txtClave.getPassword());
-        String nombre = validarCredenciales(u, p);
         if (!nombre.isEmpty()) {
             JOptionPane.showMessageDialog(frame, "Bienvenido "+ nombre);
             double saldoInicial = 0.0;
