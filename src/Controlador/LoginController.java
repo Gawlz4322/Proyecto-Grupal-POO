@@ -18,9 +18,23 @@ public class LoginController {
         String p = Vista.getClave();
         String nombre = Modelo.validarCredenciales(u, p);
         if (!nombre.isEmpty()){
-            //mensaje de bienvenida + preguntas iniciales
+            JOptionPane.showMessageDialog(null, "Bienvenido" + nombre); //null por mientras
         }else{
             JOptionPane.showMessageDialog(null, "Usuario o Clave no valido");
+        }
+    }
+    private void manejarInput(String input, String tipo){
+        if (input != null && !input.isEmpty()){
+            try {
+                double monto = Double.parseDouble(input);
+                if (tipo.equals("gasto")) {
+                    Modelo.agregarGasto(monto);
+                } else if (tipo.equals("ingreso")) {
+                    Modelo.agregarIngreso(monto);
+                }
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Monto inválido, se omitirá.");
+            }
         }
     }
 }
