@@ -3,11 +3,28 @@ package Controlador;
 import Modelo.SistemaFinanzas;
 import Vista.MenuPrincipal;
 
+import javax.swing.*;
+
 public class MenuController {
     private MenuPrincipal Vista;
     private final SistemaFinanzas Modelo;
 
     public MenuController(SistemaFinanzas Modelo) {
         this.Modelo = Modelo;
+    }
+    public void manejarGasto(){
+        String stringGasto = Vista.pedirInput("Monto del gasto:");
+        if(stringGasto != null && !stringGasto.isEmpty()){
+            try {
+                double gastoNuevo = Double.parseDouble(stringGasto);
+                Modelo.agregarGasto(gastoNuevo);
+                actualizarSaldoVista();
+            } catch (NumberFormatException ex) {
+                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido.");
+            }
+        }
+    }
+    public void actualizarSaldoVista() {
+        Vista.actualizarDisplaySaldo(Modelo.getSaldo());
     }
 }
