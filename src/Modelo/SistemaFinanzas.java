@@ -35,4 +35,10 @@ public class SistemaFinanzas {
             this.historial.add("Ingreso: +$" + monto);
         }
     }
+    public double getSaldo() {
+        return saldo;
+    }
+    public List<String> getHistorial() {
+        return historial;
+    }
 }
