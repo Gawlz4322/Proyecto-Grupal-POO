@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.LoginController;
+
 import javax.swing.*;
 
 // TODO: register. Solo soporta login por ahora
@@ -10,8 +12,10 @@ public class VentanaLogin {
     private final JLabel lblClave = new JLabel("Clave:");
     private final JPasswordField txtClave = new JPasswordField();
     private final JButton btnIngresar = new JButton("Ingresar");
+    private final LoginController controller;
 
-    public VentanaLogin() {
+    public VentanaLogin(LoginController controller) {
+        this.controller = controller;
         iniciarVentanaLogin();
         redireccionadorBotones();
     }
@@ -58,11 +62,7 @@ public class VentanaLogin {
     public String getClave(){
         return new String(txtClave.getText());
     }
-
     public void redireccionadorBotones(){
-        btnIngresar.addActionListener(e -> login());
-    }
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(VentanaLogin::new);
+        btnIngresar.addActionListener(e -> controller.intentarLogin());
     }
 }
