@@ -7,7 +7,7 @@ public class MenuController {
     private MenuPrincipal Vista;
     private final SistemaFinanzas Modelo;
 
-    public MenuController(SistemaFinanzas modelo) {
-        this.Modelo = modelo;
+    public MenuController(SistemaFinanzas Modelo) {
+        this.Modelo = Modelo;
     }
 }
