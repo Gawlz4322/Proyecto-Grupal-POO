@@ -5,6 +5,9 @@ import java.util.List;
 
 public class SistemaFinanzas {
     public static final List<Usuario> USUARIOS = new ArrayList<>();
+    private double saldo = 0;
+    private final List<String> historial = new ArrayList<>();
+
     public SistemaFinanzas() {
         inicializarUsuarios();
     }
@@ -19,5 +22,17 @@ public class SistemaFinanzas {
             }
         }
         return "";
+    }
+    public void agregarGasto(double monto) {
+        if (monto > 0) {
+            this.saldo -= monto;
+            this.historial.add("Gasto: -$" + monto);
+        }
+    }
+    public void agregarIngreso(double monto) {
+        if (monto > 0) {
+            this.saldo += monto;
+            this.historial.add("Ingreso: +$" + monto);
+        }
     }
 }
