@@ -44,20 +44,7 @@ public class VentanaLogin {
 
         frame.getRootPane().setDefaultButton(btnIngresar);
     }
-    public void login(){
-            int gastos = JOptionPane.showConfirmDialog(frame, "¿Has realizado gastos?", "Gastos", JOptionPane.YES_NO_OPTION);
-            if (gastos == JOptionPane.YES_OPTION) {
-                String montoGastos = JOptionPane.showInputDialog(frame, "Ingrese el monto de gastos:");
-            }
 
-            // Pregunta inicial: ingresos
-            int ingresos = JOptionPane.showConfirmDialog(frame, "¿Has recibido ingresos?", "Ingresos", JOptionPane.YES_NO_OPTION);
-            if (ingresos == JOptionPane.YES_OPTION) {
-                String montoIngresos = JOptionPane.showInputDialog(frame, "Ingrese el monto de ingresos:");
-            }
-            frame.dispose();
-            new MenuPrincipal();
-    }
     public String getUsuario(){
         return txtUsuario.getText();
     }
