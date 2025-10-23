@@ -45,7 +45,7 @@ public class MenuPrincipal {
             }
         });
     }
-    private void actualizarDisplaySaldo(){
+    public void actualizarDisplaySaldo(){
         lblSaldo.setText("Saldo actual: $" + saldo);
     }
     private void mostrarVentana() {
