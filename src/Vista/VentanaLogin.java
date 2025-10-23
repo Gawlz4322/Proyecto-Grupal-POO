@@ -48,6 +48,9 @@ public class VentanaLogin {
         int respuesta = JOptionPane.showConfirmDialog(frame, pregunta, titulo, JOptionPane.YES_NO_OPTION);
         return respuesta == JOptionPane.YES_OPTION;
     }
+    public String pedirInput(String mensaje) {
+        return JOptionPane.showInputDialog(frame, mensaje);
+    }
 
     public String getUsuario(){
         return txtUsuario.getText();
