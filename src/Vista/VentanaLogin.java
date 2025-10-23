@@ -44,6 +44,10 @@ public class VentanaLogin {
 
         frame.getRootPane().setDefaultButton(btnIngresar);
     }
+    public boolean preguntar(){
+        int respuesta = JOptionPane.showConfirmDialog(frame, pregunta, titulo, JOptionPane.YES_NO_OPTION);
+        return respuesta == JOptionPane.YES_OPTION;
+    }
 
     public String getUsuario(){
         return txtUsuario.getText();
