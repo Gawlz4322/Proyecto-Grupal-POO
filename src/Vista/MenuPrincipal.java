@@ -1,5 +1,6 @@
-package Vista;
+package Vista;//........
 
+import Modelo.SistemaFinanzas; // ✅ Solo un package (no pongas dos "package")
 import javax.swing.*;
 
 public class MenuPrincipal {
@@ -8,6 +9,8 @@ public class MenuPrincipal {
     private final JButton btnGasto = new JButton("Añadir gasto");
     private final JButton btnIngreso = new JButton("Añadir ingreso");
     private final JButton btnHistorial = new JButton("Ver historial");
+
+    private final SistemaFinanzas sistemaFinanzas = new SistemaFinanzas();
 
     public MenuPrincipal() {
         iniciarVentanaMenuPrincipal();
@@ -21,6 +24,7 @@ public class MenuPrincipal {
         frame.setSize(800, 600);
         frame.setLayout(null);
     }
+
     private void iniciarComponentes() {
         frame.add(lblSaldo);
         frame.add(btnGasto);
@@ -31,19 +35,22 @@ public class MenuPrincipal {
         btnIngreso.setBounds(250, 160, 300, 25);
         btnHistorial.setBounds(250, 220, 300, 25);
     }
-    private void redireccionadorBotones(){
-       //(se mueven añadirGasto y añadirIngreso a sistema finanzas. Hay que rehacer esto
+
+    private void redireccionadorBotones() {
         btnHistorial.addActionListener(e -> {
-            if(historial.isEmpty()){
-                JOptionPane.showMessageDialog(frame, "No hay movimientos registrados","Historial",JOptionPane.INFORMATION_MESSAGE);
-            }else{
+            var historial = sistemaFinanzas.getHistorial(); // ✅ Se obtiene desde el sistema
+            if (historial.isEmpty()) {
+                JOptionPane.showMessageDialog(frame, "No hay movimientos registrados", "Historial", JOptionPane.INFORMATION_MESSAGE);
+            } else {
                 JOptionPane.showMessageDialog(frame, String.join("\n", historial), "Historial", JOptionPane.INFORMATION_MESSAGE);
             }
         });
     }
-    public void actualizarDisplaySaldo(double saldo){
+
+    public void actualizarDisplaySaldo(double saldo) {
         lblSaldo.setText("Saldo actual: $" + saldo);
     }
+
     private void mostrarVentana() {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -53,6 +60,7 @@ public class MenuPrincipal {
     public static void main(String[] args) {
         SwingUtilities.invokeLater(MenuPrincipal::new);
     }
+
     public String pedirInput(String mensaje) {
         return JOptionPane.showInputDialog(frame, mensaje);
     }
