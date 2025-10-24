@@ -7,7 +7,6 @@ import Vista.VentanaLogin;
 import javax.swing.*;
 
 public class Main {
-
     public static void main(String[] args) {
         SwingUtilities.invokeLater(() -> {
             SistemaFinanzas modelo = new SistemaFinanzas();
