@@ -43,4 +43,8 @@ public class LoginController {
             }
         }
     }
+
+    public void setVista(VentanaLogin Vista) {
+        this.Vista = Vista;
+    }
 }
