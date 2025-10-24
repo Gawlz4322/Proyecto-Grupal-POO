@@ -7,7 +7,7 @@ import javax.swing.*;
 // TODO: register. Solo soporta login por ahora
 public class VentanaLogin {
     private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
-    private final JLabel lblUsuario = new JLabel("Modelo.Usuario:");
+    private final JLabel lblUsuario = new JLabel("Usuario:");
     private final JTextField txtUsuario = new JTextField();
     private final JLabel lblClave = new JLabel("Clave:");
     private final JPasswordField txtClave = new JPasswordField();
