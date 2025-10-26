@@ -1,19 +1,18 @@
 package Launcher;
 
-import Controlador.LoginController;
-import Modelo.SistemaFinanzas;
-import Vista.VentanaLogin;
+import Controlador.AuthService;
+import Controlador.UserStore;
 
-import javax.swing.*;
+import javax.swing.SwingUtilities;
 
 public class Main {
     public static void main(String[] args) {
+        String userDbPath = "data/users.json";
+
+        UserStore store = new UserStore(userDbPath);
+        AuthService auth = new AuthService(store);
+
         SwingUtilities.invokeLater(() -> {
-            SistemaFinanzas modelo = new SistemaFinanzas();
-            LoginController loginController = new LoginController(modelo);
-            VentanaLogin vistaLogin = new VentanaLogin(loginController);
-            loginController.setVista(vistaLogin);
-            vistaLogin.mostrarVentana();
         });
     }
 }

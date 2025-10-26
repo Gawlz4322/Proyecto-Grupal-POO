@@ -1,20 +1,31 @@
 package Modelo;
 
+import java.time.Instant;
+import java.util.UUID;
+
 public class Usuario {
+    private String id;
     private String username;
-    private String password;
-    private String nombre;
+    private String passwordHash;
+    private String salt;
+    private Instant createdAt;
 
-    public Usuario(String username, String password, String nombre) {
+    public Usuario() {} // para Gson
+
+    public Usuario(String username, String passwordHash, String salt) {
+        this.id = UUID.randomUUID().toString();
         this.username = username;
-        this.password = password;
-        this.nombre = nombre;
-    }
-    public boolean validarCredenciales(String u, String p){
-        return this.username.equals(u) && this.password.equals(p);
-    }
-    public String getNombre() {
-        return nombre;
+        this.passwordHash = passwordHash;
+        this.salt = salt;
+        this.createdAt = Instant.now();
     }
 
+    public String getId() { return id; }
+    public String getUsername() { return username; }
+    public String getPasswordHash() { return passwordHash; }
+    public String getSalt() { return salt; }
+    public Instant getCreatedAt() { return createdAt; }
+
+    public void setPasswordHash(String passwordHash) { this.passwordHash = passwordHash; }
+    public void setSalt(String salt) { this.salt = salt; }
 }
