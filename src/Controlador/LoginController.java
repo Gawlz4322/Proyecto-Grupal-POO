@@ -32,20 +32,6 @@ public class LoginController {
             Vista.limpiarClave();
         }
     }
-    private void manejarInput(String input, String tipo){
-        if (input != null && !input.isEmpty()){
-            try {
-                double monto = Double.parseDouble(input);
-                if (tipo.equals("gasto")) {
-                    ModeloFinanzas.agregarGasto(monto);
-                } else if (tipo.equals("ingreso")) {
-                    ModeloFinanzas.agregarIngreso(monto);
-                }
-            } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Monto inválido, se omitirá.");
-            }
-        }
-    }
 
     public void setVista(VentanaLogin Vista) {
         this.Vista = Vista;
