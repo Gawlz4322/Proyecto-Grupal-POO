@@ -1,4 +1,4 @@
-package Controlador; // <-- AJUSTA ESTO A TU PAQUETE
+package Controlador;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;

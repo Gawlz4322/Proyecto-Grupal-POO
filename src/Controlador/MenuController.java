@@ -6,7 +6,6 @@ import Vista.MenuPrincipal;
 import javax.swing.*;
 
 public class MenuController {
-    public SistemaFinanzas getModeloFinanzas;
     private MenuPrincipal Vista;
     private final SistemaFinanzas Modelo;
 
@@ -24,7 +23,7 @@ public class MenuController {
                 Modelo.agregarGasto(gastoNuevo);
                 actualizarSaldoVista();
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido.");
+                JOptionPane.showMessageDialog(Vista.getFrame(), "Debe ingresar un número válido.");
             }
         }
     }

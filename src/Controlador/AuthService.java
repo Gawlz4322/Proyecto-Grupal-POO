@@ -1,6 +1,7 @@
-package Controlador; // <-- AJUSTA ESTO
+package Controlador;
 
 import Modelo.Usuario;
+import java.util.Optional;
 
 public class AuthService {
     private final UserStore store;

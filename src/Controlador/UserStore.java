@@ -15,8 +15,8 @@ import java.util.*;
 public class UserStore {
     private final Path jsonPath;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
-    private static final Type LIST_TYPE = new TypeToken<List<User>>(){}.getType();
-    private final Map<String, User> byUsername = new HashMap<>();
+    private static final Type LIST_TYPE = new TypeToken<List<Usuario>>(){}.getType();
+    private final Map<String, Usuario> byUsername = new HashMap<>();
 
     public UserStore(String filePath) {
         this.jsonPath = Paths.get(filePath);
@@ -34,8 +34,8 @@ public class UserStore {
         try {
             if (Files.notExists(jsonPath)) return;
             try (Reader r = Files.newBufferedReader(jsonPath)) {
-                List<User> list = gson.fromJson(r, LIST_TYPE);
-                if (list != null) for (User u : list) byUsername.put(keyOf(u.getUsername()), u);
+                List<Usuario> list = gson.fromJson(r, LIST_TYPE);
+                if (list != null) for (Usuario u : list) byUsername.put(keyOf(u.getUsername()), u);
             }
         } catch (Exception e) {
             throw new RuntimeException("No se pudo leer " + jsonPath, e);
@@ -44,7 +44,7 @@ public class UserStore {
 
     private synchronized void persist() {
         try {
-            List<User> list = new ArrayList<>(byUsername.values());
+            List<Usuario> list = new ArrayList<>(byUsername.values());
             Path tmp = jsonPath.resolveSibling(jsonPath.getFileName() + ".tmp");
             try (Writer w = Files.newBufferedWriter(tmp,
                     StandardOpenOption.CREATE, StandardOpenOption.TRUNCATE_EXISTING, StandardOpenOption.WRITE)) {
@@ -56,7 +56,7 @@ public class UserStore {
         }
     }
 
-    public synchronized Optional<User> findByUsername(String username) {
+    public synchronized Optional<Usuario> findByUsername(String username) {
         return Optional.ofNullable(byUsername.get(keyOf(username)));
     }
 
@@ -64,19 +64,19 @@ public class UserStore {
         return byUsername.containsKey(keyOf(username));
     }
 
-    public synchronized void saveNew(User user) {
+    public synchronized void saveNew(Usuario user) {
         String k = keyOf(user.getUsername());
         if (byUsername.containsKey(k)) throw new IllegalArgumentException("El usuario ya existe");
         byUsername.put(k, user);
         persist();
     }
 
-    public synchronized void update(User user) {
+    public synchronized void update(Usuario user) {
         byUsername.put(keyOf(user.getUsername()), user);
         persist();
     }
 
-    public synchronized List<User> listAll() {
+    public synchronized List<Usuario> listAll() {
         return new ArrayList<>(byUsername.values());
     }
 }
