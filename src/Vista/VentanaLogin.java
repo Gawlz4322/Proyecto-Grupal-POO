@@ -54,6 +54,9 @@ public class VentanaLogin {
     public void cerrarVentana(){
         frame.dispose();
     }
+    public void limpiarClave(){
+        txtClave.setText("");
+    }
     public boolean preguntar(String pregunta, String titulo){
         int respuesta = JOptionPane.showConfirmDialog(frame, pregunta, titulo, JOptionPane.YES_NO_OPTION);
         return respuesta == JOptionPane.YES_OPTION;
