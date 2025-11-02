@@ -69,7 +69,7 @@ public class VentanaLogin {
         return txtUsuario.getText();
     }
     public String getClave(){
-        return new String(txtClave.getText());
+        return new String(txtClave.getPassword());
     }
     public void redireccionadorBotones(){
         btnIngresar.addActionListener(e -> controller.intentarLogin());
