@@ -21,7 +21,9 @@ public class MenuPrincipal {
         redireccionadorBotones();
         mostrarVentana();
     }
-
+    public Component getFrame(){
+        return frame;
+    }
 
     private void iniciarVentanaMenuPrincipal() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
