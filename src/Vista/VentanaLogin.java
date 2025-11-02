@@ -48,6 +48,9 @@ public class VentanaLogin {
 
         frame.getRootPane().setDefaultButton(btnIngresar);
     }
+    public JFrame getFrame() {
+        return frame;
+    }
     public boolean preguntar(String pregunta, String titulo){
         int respuesta = JOptionPane.showConfirmDialog(frame, pregunta, titulo, JOptionPane.YES_NO_OPTION);
         return respuesta == JOptionPane.YES_OPTION;
