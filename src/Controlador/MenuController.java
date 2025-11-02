@@ -4,6 +4,7 @@ import Modelo.SistemaFinanzas;
 import Vista.MenuPrincipal;
 
 import javax.swing.*;
+import java.util.List;
 
 public class MenuController {
     private MenuPrincipal Vista;
@@ -35,8 +36,20 @@ public class MenuController {
                 Modelo.agregarIngreso(ingresoNuevo);
                 actualizarSaldoVista();
             } catch (NumberFormatException ex) {
-                JOptionPane.showMessageDialog(null, "Debe ingresar un número válido.");
+                JOptionPane.showMessageDialog(Vista.getFrame(), "Debe ingresar un número válido.");
             }
+        }
+    }
+    public void manejarHistorial(){
+        List<String> historial = Modelo.getHistorial();
+        if (historial.isEmpty()) {
+            JOptionPane.showMessageDialog(Vista.getFrame(), "No hay movimientos registrados", "Historial", JOptionPane.INFORMATION_MESSAGE);
+        } else {
+            JTextArea textArea = new JTextArea(String.join("\n", historial));
+            textArea.setEditable(false);
+            JScrollPane scrollPane = new JScrollPane(textArea);
+            scrollPane.setPreferredSize(new java.awt.Dimension(400, 300));
+            JOptionPane.showMessageDialog(Vista.getFrame(), scrollPane, "Historial de Movimientos", JOptionPane.PLAIN_MESSAGE);
         }
     }
     public void actualizarSaldoVista() {

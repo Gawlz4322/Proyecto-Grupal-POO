@@ -45,7 +45,7 @@ public class MenuPrincipal {
     private void redireccionadorBotones() {
         btnGasto.addActionListener(e -> controller.manejarGasto());
         btnIngreso.addActionListener(e -> controller.manejarIngreso());
-        btnHistorial.addActionListener(e -> controller.manejarHistorial);
+        btnHistorial.addActionListener(e -> controller.manejarHistorial());
     }
 
     public void actualizarDisplaySaldo(double saldo) {
