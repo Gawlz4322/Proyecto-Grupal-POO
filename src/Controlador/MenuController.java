@@ -12,6 +12,9 @@ public class MenuController {
     public MenuController(SistemaFinanzas Modelo) {
         this.Modelo = Modelo;
     }
+    public void setVista(MenuPrincipal Vista) {
+        this.Vista = Vista;
+    }
     public void manejarGasto(){
         String stringGasto = Vista.pedirInput("Monto del gasto:");
         if(stringGasto != null && !stringGasto.isEmpty()){
