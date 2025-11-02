@@ -1,7 +1,9 @@
-package Vista;//........
+package Vista;
 
-import Modelo.SistemaFinanzas; // ✅ Solo un package (no pongas dos "package")
+import Modelo.SistemaFinanzas;
 import javax.swing.*;
+import Controlador.MenuController;
+import java.awt.Component;
 
 public class MenuPrincipal {
     private final JFrame frame = new JFrame("Menú Principal - CFP");
@@ -9,15 +11,17 @@ public class MenuPrincipal {
     private final JButton btnGasto = new JButton("Añadir gasto");
     private final JButton btnIngreso = new JButton("Añadir ingreso");
     private final JButton btnHistorial = new JButton("Ver historial");
+    private final MenuController controller;
 
-    private final SistemaFinanzas sistemaFinanzas = new SistemaFinanzas();
-
-    public MenuPrincipal() {
+    public MenuPrincipal(MenuController controller) {
+        this.controller = controller;
+        this.controller.setVista(this);
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
         redireccionadorBotones();
         mostrarVentana();
     }
+
 
     private void iniciarVentanaMenuPrincipal() {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
