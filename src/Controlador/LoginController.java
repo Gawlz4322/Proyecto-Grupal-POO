@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.SistemaFinanzas;
+import Modelo.Usuario;
 import Vista.MenuPrincipal;
 import Vista.VentanaLogin;
 
@@ -17,20 +18,18 @@ public class LoginController {
         this.authService = authService;
     }
     public void intentarLogin(){
-        //mover desde VentanaLogin
         String u = Vista.getUsuario();
-        String p = Vista.getClave();
-        String nombre = ModeloFinanzas.validarCredenciales(u, p);
-        if (!nombre.isEmpty()){
-            JOptionPane.showMessageDialog(null, "Bienvenido" + nombre); //null por mientras
-            if (Vista.preguntar("¿Haz realizado gastos?", "Gastos")){
-                manejarInput(Vista.pedirInput("Ingrese el monto de gastos:"), "gasto");
-            }
-            if (Vista.preguntar("¿Haz recibido ingresos?", "Ingresos")){
-                manejarInput(Vista.pedirInput("Ingrese el monto de ingresos:"), "ingreso");
-            }
-        }else{
-            JOptionPane.showMessageDialog(null, "Usuario o Clave no valido");
+        char[] p = Vista.getClave().toCharArray();
+        try {
+            Usuario usuario = authService.login(u, p);
+            JOptionPane.showMessageDialog(Vista.getFrame(), "Bienvenido, " + usuario.getUsername());
+            Vista.cerrarVentana();
+            menuPrincipal.mostrarVentana();
+        } catch(IllegalArgumentException e){
+            JOptionPane.showMessageDialog(Vista.getFrame(), e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
+        } finally{
+            Contraseña.zero(p);
+            Vista.limpiarClave();
         }
     }
     private void manejarInput(String input, String tipo){
