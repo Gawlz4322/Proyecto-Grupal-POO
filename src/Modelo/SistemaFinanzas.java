@@ -15,14 +15,7 @@ public class SistemaFinanzas {
         USUARIOS.add(new Usuario("admin", "1234", "Administrador"));
         USUARIOS.add(new Usuario("Juanin", "abcd", "Juanin Juan Harry"));
     }
-    public String validarCredenciales(String u, String p){
-        for (Usuario usuarios : USUARIOS){
-            if(usuarios.validarCredenciales(u,p)){
-                return usuarios.getNombre();
-            }
-        }
-        return "";
-    }
+
     public void agregarGasto(double monto) {
         if (monto > 0) {
             this.saldo -= monto;
