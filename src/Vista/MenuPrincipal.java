@@ -51,7 +51,7 @@ public class MenuPrincipal {
         lblSaldo.setText("Saldo actual: $" + saldo);
     }
 
-    private void mostrarVentana() {
+    public void mostrarVentana() {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
