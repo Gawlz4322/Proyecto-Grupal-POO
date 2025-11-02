@@ -10,9 +10,11 @@ public class LoginController {
     private VentanaLogin Vista;
     private final AuthService authService;
     private final SistemaFinanzas ModeloFinanzas;
-    private final MenuPrincipal MenuPrincipal;
-    public LoginController(SistemaFinanzas modelo){
-        this.ModeloFinanzas = modelo;
+    private final MenuPrincipal menuPrincipal;
+    public LoginController(AuthService authService, SistemaFinanzas ModeloFinanzas, MenuPrincipal menuPrincipal) {
+        this.ModeloFinanzas = ModeloFinanzas;
+        this.menuPrincipal = menuPrincipal;
+        this.authService = authService;
     }
     public void intentarLogin(){
         //mover desde VentanaLogin
