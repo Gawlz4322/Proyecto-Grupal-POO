@@ -43,8 +43,10 @@ public class MenuPrincipal {
     }
 
     private void redireccionadorBotones() {
+        btnGasto.addActionListener(e -> controller.manejarGasto());
+        btnIngreso.addActionListener(e -> controller.manejarIngreso());
         btnHistorial.addActionListener(e -> {
-            var historial = sistemaFinanzas.getHistorial(); // ✅ Se obtiene desde el sistema
+            var historial = controller.getModeloFinanzas.getHistorial(); // ✅ Se obtiene desde el sistema
             if (historial.isEmpty()) {
                 JOptionPane.showMessageDialog(frame, "No hay movimientos registrados", "Historial", JOptionPane.INFORMATION_MESSAGE);
             } else {
@@ -61,10 +63,6 @@ public class MenuPrincipal {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(MenuPrincipal::new);
     }
 
     public String pedirInput(String mensaje) {
