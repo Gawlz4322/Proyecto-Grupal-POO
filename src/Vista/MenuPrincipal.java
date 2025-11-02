@@ -45,14 +45,7 @@ public class MenuPrincipal {
     private void redireccionadorBotones() {
         btnGasto.addActionListener(e -> controller.manejarGasto());
         btnIngreso.addActionListener(e -> controller.manejarIngreso());
-        btnHistorial.addActionListener(e -> {
-            var historial = controller.getModeloFinanzas.getHistorial(); // ✅ Se obtiene desde el sistema
-            if (historial.isEmpty()) {
-                JOptionPane.showMessageDialog(frame, "No hay movimientos registrados", "Historial", JOptionPane.INFORMATION_MESSAGE);
-            } else {
-                JOptionPane.showMessageDialog(frame, String.join("\n", historial), "Historial", JOptionPane.INFORMATION_MESSAGE);
-            }
-        });
+        btnHistorial.addActionListener(e -> controller.manejarHistorial);
     }
 
     public void actualizarDisplaySaldo(double saldo) {
