@@ -8,15 +8,17 @@ import javax.swing.*;
 
 public class LoginController {
     private VentanaLogin Vista;
-    private final SistemaFinanzas Modelo;
+    private final AuthService authService;
+    private final SistemaFinanzas ModeloFinanzas;
+    private final MenuPrincipal MenuPrincipal;
     public LoginController(SistemaFinanzas modelo){
-        this.Modelo = modelo;
+        this.ModeloFinanzas = modelo;
     }
     public void intentarLogin(){
         //mover desde VentanaLogin
         String u = Vista.getUsuario();
         String p = Vista.getClave();
-        String nombre = Modelo.validarCredenciales(u, p);
+        String nombre = ModeloFinanzas.validarCredenciales(u, p);
         if (!nombre.isEmpty()){
             JOptionPane.showMessageDialog(null, "Bienvenido" + nombre); //null por mientras
             if (Vista.preguntar("¿Haz realizado gastos?", "Gastos")){
@@ -34,9 +36,9 @@ public class LoginController {
             try {
                 double monto = Double.parseDouble(input);
                 if (tipo.equals("gasto")) {
-                    Modelo.agregarGasto(monto);
+                    ModeloFinanzas.agregarGasto(monto);
                 } else if (tipo.equals("ingreso")) {
-                    Modelo.agregarIngreso(monto);
+                    ModeloFinanzas.agregarIngreso(monto);
                 }
             } catch (NumberFormatException ex) {
                 JOptionPane.showMessageDialog(null, "Monto inválido, se omitirá.");
