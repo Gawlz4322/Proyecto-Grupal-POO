@@ -1,1 +1,1 @@
-El proyecto es una aplicación de Control de Finanzas Personales (CFP) desarrollada en Java con interfaz gráfica Swing.
+A considerar: Añadir libreria externa de google: "com.google.code.gson:gson:2.10.1"
