@@ -13,14 +13,20 @@ public class MenuController {
     public MenuController(SistemaFinanzas Modelo) {
         this.Modelo = Modelo;
     }
+    
     public void setVista(MenuPrincipal Vista) {
         this.Vista = Vista;
     }
+    
     public void manejarGasto(){
         String stringGasto = Vista.pedirInput("Monto del gasto:");
         if(stringGasto != null && !stringGasto.isEmpty()){
             try {
                 double gastoNuevo = Double.parseDouble(stringGasto);
+                if (gastoNuevo <= 0) {
+                    JOptionPane.showMessageDialog(Vista.getFrame(), "El monto debe ser mayor a 0");
+                    return;
+                }
                 Modelo.agregarGasto(gastoNuevo);
                 actualizarSaldoVista();
             } catch (NumberFormatException ex) {
@@ -28,11 +34,16 @@ public class MenuController {
             }
         }
     }
+    
     public void manejarIngreso(){
         String stringIngreso = Vista.pedirInput("Monto del ingreso:");
         if(stringIngreso != null && !stringIngreso.isEmpty()){
             try {
                 double ingresoNuevo = Double.parseDouble(stringIngreso);
+                if (ingresoNuevo <= 0) {
+                    JOptionPane.showMessageDialog(Vista.getFrame(), "El monto debe ser mayor a 0");
+                    return;
+                }
                 Modelo.agregarIngreso(ingresoNuevo);
                 actualizarSaldoVista();
             } catch (NumberFormatException ex) {
@@ -40,6 +51,7 @@ public class MenuController {
             }
         }
     }
+    
     public void manejarHistorial(){
         List<String> historial = Modelo.getHistorial();
         if (historial.isEmpty()) {
@@ -52,6 +64,7 @@ public class MenuController {
             JOptionPane.showMessageDialog(Vista.getFrame(), scrollPane, "Historial de Movimientos", JOptionPane.PLAIN_MESSAGE);
         }
     }
+    
     public void actualizarSaldoVista() {
         Vista.actualizarDisplaySaldo(Modelo.getSaldo());
     }

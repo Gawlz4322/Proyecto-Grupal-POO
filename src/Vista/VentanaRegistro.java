@@ -1,0 +1,96 @@
+package Vista;
+
+import Controlador.RegistroController;
+
+import javax.swing.*;
+
+public class VentanaRegistro {
+    private final JFrame frame = new JFrame("Registro - Control de Finanzas Personales");
+    private final JLabel lblUsuario = new JLabel("Usuario:");
+    private final JTextField txtUsuario = new JTextField();
+    private final JLabel lblClave = new JLabel("Contraseña:");
+    private final JPasswordField txtClave = new JPasswordField();
+    private final JLabel lblConfirmarClave = new JLabel("Confirmar contraseña:");
+    private final JPasswordField txtConfirmarClave = new JPasswordField();
+    private final JButton btnRegistrar = new JButton("Registrarse");
+    private final JButton btnVolver = new JButton("Volver al login");
+    private final RegistroController controller;
+
+    public VentanaRegistro(RegistroController controller) {
+        this.controller = controller;
+        this.controller.setVista(this);
+        iniciarVentanaRegistro();
+        redireccionadorBotones();
+    }
+
+    private void iniciarVentanaRegistro() {
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 450);
+        frame.setLayout(null);
+        inicializarComponentes();
+    }
+
+    private void inicializarComponentes() {
+        frame.add(lblUsuario);
+        frame.add(txtUsuario);
+        frame.add(lblClave);
+        frame.add(txtClave);
+        frame.add(lblConfirmarClave);
+        frame.add(txtConfirmarClave);
+        frame.add(btnRegistrar);
+        frame.add(btnVolver);
+
+        lblUsuario.setBounds(50, 60, 300, 25);
+        txtUsuario.setBounds(50, 90, 300, 25);
+        
+        lblClave.setBounds(50, 130, 300, 25);
+        txtClave.setBounds(50, 160, 300, 25);
+        
+        lblConfirmarClave.setBounds(50, 200, 300, 25);
+        txtConfirmarClave.setBounds(50, 230, 300, 25);
+        
+        btnRegistrar.setBounds(50, 280, 300, 30);
+        btnVolver.setBounds(50, 320, 300, 30);
+
+        frame.getRootPane().setDefaultButton(btnRegistrar);
+    }
+
+    public void mostrarVentana() {
+        frame.setLocationRelativeTo(null);
+        frame.setResizable(false);
+        frame.setVisible(true);
+    }
+
+    public void cerrarVentana() {
+        frame.dispose();
+    }
+
+    public void limpiarCampos() {
+        txtUsuario.setText("");
+        txtClave.setText("");
+        txtConfirmarClave.setText("");
+    }
+
+    public JFrame getFrame() {
+        return frame;
+    }
+
+    public String getUsuario() {
+        return txtUsuario.getText();
+    }
+
+    public char[] getClave() {
+        return txtClave.getPassword();
+    }
+
+    public char[] getConfirmarClave() {
+        return txtConfirmarClave.getPassword();
+    }
+
+    private void redireccionadorBotones() {
+        // CAMBIO: Ahora llama sin parámetros
+        btnRegistrar.addActionListener(e -> controller.intentarRegistro());
+        // CAMBIO: Método correcto
+        btnVolver.addActionListener(e -> controller.volverAlLogin());
+    }
+}

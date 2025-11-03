@@ -2,49 +2,56 @@ package Controlador;
 
 import javax.crypto.SecretKeyFactory;
 import javax.crypto.spec.PBEKeySpec;
+import java.security.NoSuchAlgorithmException;
 import java.security.SecureRandom;
+import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 
-public final class Contraseña {
-    private static final int ITERATIONS = 120_000;
+public class Contraseña {
+    private static final int ITERATIONS = 65536;
     private static final int KEY_LENGTH = 256;
-    private static final SecureRandom RNG = new SecureRandom();
+    private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
 
-    private Contraseña() {}
-
-    public static String genSalt(int bytes) {
-        byte[] salt = new byte[bytes];
-        RNG.nextBytes(salt);
+    /**
+     * Genera un salt aleatorio
+     */
+    public static String genSalt(int length) {
+        SecureRandom random = new SecureRandom();
+        byte[] salt = new byte[length];
+        random.nextBytes(salt);
         return Base64.getEncoder().encodeToString(salt);
     }
 
-    public static String hash(char[] password, String base64Salt) {
+    /**
+     * Genera un hash de la contraseña usando PBKDF2
+     */
+    public static String hash(char[] password, String salt) {
         try {
-            byte[] salt = Base64.getDecoder().decode(base64Salt);
-            PBEKeySpec spec = new PBEKeySpec(password, salt, ITERATIONS, KEY_LENGTH);
-            SecretKeyFactory skf = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
-            byte[] key = skf.generateSecret(spec).getEncoded();
-            return Base64.getEncoder().encodeToString(key);
-        } catch (Exception e) {
-            throw new RuntimeException("Error al hashear la contraseña", e);
+            byte[] saltBytes = Base64.getDecoder().decode(salt);
+            PBEKeySpec spec = new PBEKeySpec(password, saltBytes, ITERATIONS, KEY_LENGTH);
+            SecretKeyFactory factory = SecretKeyFactory.getInstance(ALGORITHM);
+            byte[] hash = factory.generateSecret(spec).getEncoded();
+            spec.clearPassword();
+            return Base64.getEncoder().encodeToString(hash);
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+            throw new RuntimeException("Error al generar hash de contraseña", e);
         }
     }
 
-    public static boolean verify(char[] password, String base64Salt, String expectedHash) {
-        String actual = hash(password, base64Salt);
-        return constantTimeEquals(expectedHash, actual);
+    /**
+     * Verifica si una contraseña coincide con un hash
+     */
+    public static boolean verify(char[] password, String salt, String expectedHash) {
+        String actualHash = hash(password, salt);
+        return actualHash.equals(expectedHash);
     }
 
-    public static void zero(char[] arr) {
-        if (arr != null) java.util.Arrays.fill(arr, '\0');
-    }
-
-    private static boolean constantTimeEquals(String a, String b) {
-        byte[] x = a.getBytes();
-        byte[] y = b.getBytes();
-        if (x.length != y.length) return false;
-        int r = 0;
-        for (int i = 0; i < x.length; i++) r |= x[i] ^ y[i];
-        return r == 0;
+    /**
+     * Limpia un array de caracteres de la memoria
+     */
+    public static void zero(char[] password) {
+        if (password != null) {
+            java.util.Arrays.fill(password, '\0');
+        }
     }
 }

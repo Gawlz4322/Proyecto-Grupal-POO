@@ -10,17 +10,33 @@ import java.io.Writer;
 import java.lang.reflect.Type;
 import java.nio.file.*;
 import java.text.Normalizer;
+import java.time.Instant;  // ← ¡FALTABA ESTE IMPORT!
 import java.util.*;
 
 public class UserStore {
     private final Path jsonPath;
-    private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private final Gson gson = new GsonBuilder()
+            .setPrettyPrinting()
+            .registerTypeAdapter(Instant.class, new InstantAdapter())
+            .create();
     private static final Type LIST_TYPE = new TypeToken<List<Usuario>>(){}.getType();
     private final Map<String, Usuario> byUsername = new HashMap<>();
 
     public UserStore(String filePath) {
         this.jsonPath = Paths.get(filePath);
+        ensureDataDirectory();  // Asegurar que el directorio exista
         load();
+    }
+
+    private void ensureDataDirectory() {
+        try {
+            Path parent = jsonPath.getParent();
+            if (parent != null && Files.notExists(parent)) {
+                Files.createDirectories(parent);
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("No se pudo crear el directorio de datos", e);
+        }
     }
 
     private static String keyOf(String username) {

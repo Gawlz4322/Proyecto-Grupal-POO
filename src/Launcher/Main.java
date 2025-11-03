@@ -1,12 +1,14 @@
-package Launcher;
+
 
 import Controlador.AuthService;
 import Controlador.LoginController;
 import Controlador.MenuController;
+import Controlador.RegistroController;
 import Controlador.UserStore;
 import Modelo.SistemaFinanzas;
 import Vista.MenuPrincipal;
 import Vista.VentanaLogin;
+import Vista.VentanaRegistro;
 
 import javax.swing.SwingUtilities;
 
@@ -29,12 +31,19 @@ public class Main {
             MenuPrincipal menuPrincipal = new MenuPrincipal(menuController);
             menuPrincipal.getFrame().setVisible(false); // Ocultar hasta login exitoso
             
-            // Crear controlador de login
+            // Crear ventana de login
             LoginController loginController = new LoginController(auth, modeloFinanzas, menuPrincipal);
-            
-            // Crear y mostrar ventana de login
             VentanaLogin ventanaLogin = new VentanaLogin(loginController);
             loginController.setVista(ventanaLogin);
+            
+            // Crear ventana de registro y conectarla
+            RegistroController registroController = new RegistroController(auth, ventanaLogin);
+            VentanaRegistro ventanaRegistro = new VentanaRegistro(registroController);
+            
+            // IMPORTANTE: Conectar ventana de registro con login
+            ventanaLogin.setVentanaRegistro(ventanaRegistro);
+            
+            // Mostrar ventana de login
             ventanaLogin.mostrarVentana();
         });
     }

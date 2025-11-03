@@ -1,6 +1,7 @@
+
 package Modelo;
 
-import java.time.Instant;
+import java.time.Instant;  // ← IMPORTANTE: Debe estar este import
 import java.util.UUID;
 
 public class Usuario {
