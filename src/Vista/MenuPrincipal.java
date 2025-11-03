@@ -1,6 +1,5 @@
 package Vista;
 
-import Modelo.SistemaFinanzas;
 import javax.swing.*;
 import Controlador.MenuController;
 import java.awt.Component;
@@ -18,7 +17,9 @@ public class MenuPrincipal {
         this.controller.setVista(this);
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
+        redireccionadorBotones(); // ← ¡FALTABA ESTA LÍNEA!
     }
+    
     public Component getFrame(){
         return frame;
     }
@@ -34,6 +35,7 @@ public class MenuPrincipal {
         frame.add(btnGasto);
         frame.add(btnIngreso);
         frame.add(btnHistorial);
+        
         lblSaldo.setBounds(350, 40, 300, 25);
         btnGasto.setBounds(250, 100, 300, 25);
         btnIngreso.setBounds(250, 160, 300, 25);
