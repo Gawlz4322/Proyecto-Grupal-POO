@@ -18,8 +18,6 @@ public class MenuPrincipal {
         this.controller.setVista(this);
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
-        redireccionadorBotones();
-        mostrarVentana();
     }
     public Component getFrame(){
         return frame;

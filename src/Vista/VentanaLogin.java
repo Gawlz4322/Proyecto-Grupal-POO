@@ -26,7 +26,6 @@ public class VentanaLogin {
         //cambiar a new GridLayout(x, y, z, w). Estetica, dejar para el final
         frame.setLayout(null);
         inicializarBotones();
-        mostrarVentana();
     }
     public void mostrarVentana(){
         frame.setLocationRelativeTo(null);
