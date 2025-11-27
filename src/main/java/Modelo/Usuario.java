@@ -20,7 +20,7 @@ public class Usuario {
         this.salt = salt;
         this.createdAt = Instant.now();
     }
-
+    
     public String getId() { return id; }
     public String getUsername() { return username; }
     public String getPasswordHash() { return passwordHash; }
