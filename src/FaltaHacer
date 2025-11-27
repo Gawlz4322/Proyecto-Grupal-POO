@@ -1,8 +1,0 @@
-Voy a dejar lista de cosas que faltan hacer.
-1. Crear clase de encriptación de contraseñas. (Hecho)
-2. Crear JSON con usuarios, contraseñas, etc. (Tambien historial(?)) (Hecho)
-3. Estética general (baja prioridad, dejar al final)
-4. Preguntas iniciales, ¿Las dejamos en VentanaLogin? Las cambiamos de lugar? Metodo propio dentro de VentanaLogin? (Hecho)
-5. Cerrar sesión en MenuPrincipal. Quizás cambiar de usuario? Nse.
-6. Registo de usuarios nuevos, no hard-codeados. (Hecho)
-7. Validaciones? Nse si dejar que puedan haber saldo negativo (se podría considerar deudas, pero hay que evaluarlo)
