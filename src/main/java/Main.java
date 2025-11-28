@@ -26,6 +26,13 @@ public class Main {
         String userDbPath = "src/main/resources/data/users.json";
         String financeDbPath = "src/main/resources/data/finances.json";
 
+        // Configurar FlatLaf (Mejora UI)
+        try {
+            javax.swing.UIManager.setLookAndFeel(new com.formdev.flatlaf.FlatDarkLaf());
+        } catch (Exception ex) {
+            System.err.println("Failed to initialize FlatLaf");
+        }
+
         // Inicializar persistencia y capa de autenticación
         UserStore store = new UserStore(userDbPath);
         AuthService auth = new AuthService(store);

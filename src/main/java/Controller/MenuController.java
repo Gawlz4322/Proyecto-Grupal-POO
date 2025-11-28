@@ -82,20 +82,17 @@ public class MenuController {
 
     /**
      * Maneja la acción de ver el historial de movimientos.
-     * Muestra una lista de transacciones en un cuadro de diálogo.
+     * Muestra una lista de transacciones en una tabla.
      */
     public void handleHistory() {
         List<String> history = financeSystem.getHistory();
         if (history.isEmpty()) {
-            JOptionPane.showMessageDialog(view.getFrame(), "No hay movimientos registrados", "Historial",
-                    JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(view.getFrame(), "No hay transacciones registradas.");
         } else {
-            JTextArea textArea = new JTextArea(String.join("\n", history));
-            textArea.setEditable(false);
-            JScrollPane scrollPane = new JScrollPane(textArea);
-            scrollPane.setPreferredSize(new java.awt.Dimension(400, 300));
-            JOptionPane.showMessageDialog(view.getFrame(), scrollPane, "Historial de Movimientos",
-                    JOptionPane.PLAIN_MESSAGE);
+            // Usar la nueva ventana con tabla
+            View.HistoryWindow historyWindow = new View.HistoryWindow();
+            historyWindow.loadData(history);
+            historyWindow.showWindow();
         }
     }
 
