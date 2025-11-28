@@ -1,52 +1,63 @@
-import Controlador.AuthService;
-import Controlador.LoginController;
-import Controlador.MenuController;
-import Controlador.RegistroController;
-import Controlador.UserStore;
-import Modelo.SistemaFinanzas;
-import Vista.MenuPrincipal;
-import Vista.VentanaLogin;
-import Vista.VentanaRegistro;
+import Controller.AuthService;
+import Controller.LoginController;
+import Controller.MenuController;
+import Controller.RegisterController;
+import Controller.UserStore;
+import Controller.FinanceStore;
+import Model.FinanceSystem;
+import View.MainMenu;
+import View.LoginWindow;
+import View.RegisterWindow;
 
 import javax.swing.SwingUtilities;
 
+/**
+ * Clase principal de la aplicación.
+ * Inicializa los componentes y arranca la interfaz gráfica.
+ */
 public class Main {
+    /**
+     * Punto de entrada de la aplicación.
+     * Configura la persistencia, los modelos, controladores y vistas.
+     *
+     * @param args Argumentos de la línea de comandos (no utilizados).
+     */
     public static void main(String[] args) {
         String userDbPath = "src/main/resources/data/users.json";
         String financeDbPath = "src/main/resources/data/finances.json";
 
-        // Inicializar capa de persistencia y autenticación
+        // Inicializar persistencia y capa de autenticación
         UserStore store = new UserStore(userDbPath);
         AuthService auth = new AuthService(store);
 
-        // Inicializar store de finanzas
-        Controlador.FinanceStore financeStore = new Controlador.FinanceStore(financeDbPath);
+        // Inicializar almacenamiento de finanzas
+        FinanceStore financeStore = new FinanceStore(financeDbPath);
 
         // Inicializar modelo de finanzas
-        SistemaFinanzas modeloFinanzas = new SistemaFinanzas(financeStore);
+        FinanceSystem financeSystem = new FinanceSystem(financeStore);
 
         SwingUtilities.invokeLater(() -> {
-            // Crear controlador de menú
-            MenuController menuController = new MenuController(modeloFinanzas);
+            // Crear controlador del menú
+            MenuController menuController = new MenuController(financeSystem);
 
-            // Crear vista del menú principal (sin mostrar aún)
-            MenuPrincipal menuPrincipal = new MenuPrincipal(menuController);
-            menuPrincipal.getFrame().setVisible(false); // Ocultar hasta login exitoso
+            // Crear vista del menú principal (oculta inicialmente)
+            MainMenu mainMenu = new MainMenu(menuController);
+            mainMenu.getFrame().setVisible(false); // Ocultar hasta login exitoso
 
             // Crear ventana de login
-            LoginController loginController = new LoginController(auth, modeloFinanzas, menuPrincipal);
-            VentanaLogin ventanaLogin = new VentanaLogin(loginController);
-            loginController.setVista(ventanaLogin);
+            LoginController loginController = new LoginController(auth, financeSystem, mainMenu);
+            LoginWindow loginWindow = new LoginWindow(loginController);
+            loginController.setView(loginWindow);
 
             // Crear ventana de registro y conectarla
-            RegistroController registroController = new RegistroController(auth, ventanaLogin);
-            VentanaRegistro ventanaRegistro = new VentanaRegistro(registroController);
+            RegisterController registerController = new RegisterController(auth, loginWindow);
+            RegisterWindow registerWindow = new RegisterWindow(registerController);
 
             // IMPORTANTE: Conectar ventana de registro con login
-            ventanaLogin.setVentanaRegistro(ventanaRegistro);
+            loginWindow.setRegisterWindow(registerWindow);
 
             // Mostrar ventana de login
-            ventanaLogin.mostrarVentana();
+            loginWindow.showWindow();
         });
     }
 }
