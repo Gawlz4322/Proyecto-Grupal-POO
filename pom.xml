@@ -20,6 +20,13 @@
     </properties>
 
     <dependencies>
+        <!-- FlatLaf Look and Feel -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.6.2</version>
+        </dependency>
+
         <!-- Gson para serialización/deserialización JSON -->
         <dependency>
             <groupId>com.google.code.gson</groupId>
