@@ -1,0 +1,10 @@
+{
+  "Benya": {
+    "userId": "Benya",
+    "saldo": 9900.0,
+    "historial": [
+      "Ingreso: +$10000.0",
+      "Gasto (Comida): -$100.0"
+    ]
+  }
+}

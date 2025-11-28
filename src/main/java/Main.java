@@ -1,4 +1,3 @@
-
 import Controlador.AuthService;
 import Controlador.LoginController;
 import Controlador.MenuController;
@@ -14,13 +13,17 @@ import javax.swing.SwingUtilities;
 public class Main {
     public static void main(String[] args) {
         String userDbPath = "src/main/resources/data/users.json";
+        String financeDbPath = "src/main/resources/data/finances.json";
 
         // Inicializar capa de persistencia y autenticación
         UserStore store = new UserStore(userDbPath);
         AuthService auth = new AuthService(store);
 
+        // Inicializar store de finanzas
+        Controlador.FinanceStore financeStore = new Controlador.FinanceStore(financeDbPath);
+
         // Inicializar modelo de finanzas
-        SistemaFinanzas modeloFinanzas = new SistemaFinanzas();
+        SistemaFinanzas modeloFinanzas = new SistemaFinanzas(financeStore);
 
         SwingUtilities.invokeLater(() -> {
             // Crear controlador de menú

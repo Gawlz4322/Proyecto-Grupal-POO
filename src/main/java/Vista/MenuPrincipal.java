@@ -17,10 +17,10 @@ public class MenuPrincipal {
         this.controller.setVista(this);
         iniciarVentanaMenuPrincipal();
         iniciarComponentes();
-        redireccionadorBotones(); // ← ¡FALTABA ESTA LÍNEA!
+        redireccionadorBotones();
     }
-    
-    public Component getFrame(){
+
+    public Component getFrame() {
         return frame;
     }
 
@@ -35,7 +35,7 @@ public class MenuPrincipal {
         frame.add(btnGasto);
         frame.add(btnIngreso);
         frame.add(btnHistorial);
-        
+
         lblSaldo.setBounds(350, 40, 300, 25);
         btnGasto.setBounds(250, 100, 300, 25);
         btnIngreso.setBounds(250, 160, 300, 25);
@@ -60,5 +60,16 @@ public class MenuPrincipal {
 
     public String pedirInput(String mensaje) {
         return JOptionPane.showInputDialog(frame, mensaje);
+    }
+
+    public String pedirOpcion(String mensaje, String[] opciones) {
+        return (String) JOptionPane.showInputDialog(
+                frame,
+                mensaje,
+                "Seleccionar",
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                opciones,
+                opciones[0]);
     }
 }

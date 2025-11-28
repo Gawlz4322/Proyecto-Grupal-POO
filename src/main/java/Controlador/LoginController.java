@@ -12,22 +12,26 @@ public class LoginController {
     private final AuthService authService;
     private final SistemaFinanzas ModeloFinanzas;
     private final MenuPrincipal menuPrincipal;
+
     public LoginController(AuthService authService, SistemaFinanzas ModeloFinanzas, MenuPrincipal menuPrincipal) {
         this.ModeloFinanzas = ModeloFinanzas;
         this.menuPrincipal = menuPrincipal;
         this.authService = authService;
     }
-    public void intentarLogin(){
+
+    public void intentarLogin() {
         String u = Vista.getUsuario();
         char[] p = Vista.getClave().toCharArray();
         try {
             Usuario usuario = authService.login(u, p);
+            ModeloFinanzas.iniciarSesion(usuario); // Cargar datos del usuario
             JOptionPane.showMessageDialog(Vista.getFrame(), "Bienvenido, " + usuario.getUsername());
             Vista.cerrarVentana();
+            menuPrincipal.actualizarDisplaySaldo(ModeloFinanzas.getSaldo());
             menuPrincipal.mostrarVentana();
-        } catch(IllegalArgumentException e){
+        } catch (IllegalArgumentException e) {
             JOptionPane.showMessageDialog(Vista.getFrame(), e.getMessage(), "Error", JOptionPane.ERROR_MESSAGE);
-        } finally{
+        } finally {
             Contraseña.zero(p);
             Vista.limpiarClave();
         }
