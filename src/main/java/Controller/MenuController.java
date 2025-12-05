@@ -78,6 +78,7 @@ public class MenuController {
                 JOptionPane.showMessageDialog(view.getFrame(), "Debe ingresar un número válido.");
             }
         }
+        view.updateBalanceDisplay(financeSystem.getBalance());
     }
 
     /**
@@ -85,7 +86,7 @@ public class MenuController {
      * Muestra una lista de transacciones en una tabla.
      */
     public void handleHistory() {
-        List<String> history = financeSystem.getHistory();
+        List<Model.Transaction> history = financeSystem.getHistory();
         if (history.isEmpty()) {
             JOptionPane.showMessageDialog(view.getFrame(), "No hay transacciones registradas.");
         } else {
@@ -101,5 +102,14 @@ public class MenuController {
      */
     public void updateBalanceView() {
         view.updateBalanceDisplay(financeSystem.getBalance());
+    }
+
+    /**
+     * Obtiene los gastos por categoría para el gráfico.
+     *
+     * @return Mapa de Categoría -> Monto.
+     */
+    public java.util.Map<String, Double> getExpensesByCategory() {
+        return financeSystem.getExpensesByCategory();
     }
 }

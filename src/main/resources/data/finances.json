@@ -1,13 +1,43 @@
 {
   "Benya": {
     "userId": "Benya",
-    "saldo": 8901.0,
-    "historial": [
-      "Ingreso: +$10000.0",
-      "Gasto (Comida): -$100.0",
-      "Gasto (Transporte): -$1000.0",
-      "Gasto (Comida): -$1.0",
-      "Ingreso: +$2.0"
+    "saldo": 97655.0,
+    "transacciones": [
+      {
+        "type": "Ingreso",
+        "amount": 12333.0,
+        "category": "Ingreso",
+        "date": "2025-12-04 21:04:08",
+        "description": "Ingreso de dinero"
+      },
+      {
+        "type": "Gasto",
+        "amount": 123.0,
+        "category": "Servicios",
+        "date": "2025-12-04 21:04:15",
+        "description": "Gasto en Servicios"
+      },
+      {
+        "type": "Gasto",
+        "amount": 1555.0,
+        "category": "Comida",
+        "date": "2025-12-04 21:04:21",
+        "description": "Gasto en Comida"
+      },
+      {
+        "type": "Ingreso",
+        "amount": 200000.0,
+        "category": "Ingreso",
+        "date": "2025-12-04 21:11:53",
+        "description": "Ingreso de dinero"
+      },
+      {
+        "type": "Gasto",
+        "amount": 113000.0,
+        "category": "Entretenimiento",
+        "date": "2025-12-04 21:12:01",
+        "description": "Gasto en Entretenimiento"
+      }
     ]
   }
 }

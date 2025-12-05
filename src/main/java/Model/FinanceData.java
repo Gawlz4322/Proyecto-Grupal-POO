@@ -14,8 +14,8 @@ public class FinanceData {
     @SerializedName("saldo")
     private double balance;
 
-    @SerializedName("historial")
-    private List<String> history;
+    @SerializedName("transacciones")
+    private List<Transaction> transactions;
 
     /**
      * Crea una nueva instancia de datos financieros para un usuario.
@@ -26,7 +26,7 @@ public class FinanceData {
     public FinanceData(String userId) {
         this.userId = userId;
         this.balance = 0.0;
-        this.history = new ArrayList<>();
+        this.transactions = new ArrayList<>();
     }
 
     public String getUserId() {
@@ -41,11 +41,21 @@ public class FinanceData {
         this.balance = balance;
     }
 
-    public List<String> getHistory() {
-        return history;
+    public List<Transaction> getTransactions() {
+        if (transactions == null) {
+            transactions = new ArrayList<>();
+        }
+        return transactions;
     }
 
-    public void setHistory(List<String> history) {
-        this.history = history;
+    public void setTransactions(List<Transaction> transactions) {
+        this.transactions = transactions;
+    }
+
+    public void addTransaction(Transaction transaction) {
+        if (this.transactions == null) {
+            this.transactions = new ArrayList<>();
+        }
+        this.transactions.add(transaction);
     }
 }

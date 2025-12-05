@@ -1,5 +1,0 @@
-1. Cartola. (Que los gastos sean por categorías, ej: Alimentacion, Viajes, algo, otros.)
-2. Guardar el historial de transacciones en JSON.
-3. Renombrar SistemaFinanzas a otro nombre más apropiado.
-4. Lo de contraseñas podrían ser separados (externos, no controllers).
-5. No más Spanglish (Completamente español o completamente ingles)

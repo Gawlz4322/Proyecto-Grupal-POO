@@ -41,7 +41,7 @@ public class FinanceSystem {
             throw new IllegalStateException("No user logged in");
         if (amount > 0) {
             currentData.setBalance(currentData.getBalance() - amount);
-            currentData.getHistory().add("Gasto (" + category + "): -$" + amount);
+            currentData.addTransaction(new Transaction("Gasto", amount, category, "Gasto en " + category));
             financeStore.save(currentData);
         }
     }
@@ -57,7 +57,7 @@ public class FinanceSystem {
             throw new IllegalStateException("No user logged in");
         if (amount > 0) {
             currentData.setBalance(currentData.getBalance() + amount);
-            currentData.getHistory().add("Ingreso: +$" + amount);
+            currentData.addTransaction(new Transaction("Ingreso", amount, "Ingreso", "Ingreso de dinero"));
             financeStore.save(currentData);
         }
     }
@@ -76,7 +76,24 @@ public class FinanceSystem {
      *
      * @return Lista de transacciones, o lista vacía si no hay usuario.
      */
-    public List<String> getHistory() {
-        return currentData != null ? currentData.getHistory() : List.of();
+    public List<Transaction> getHistory() {
+        return currentData != null ? currentData.getTransactions() : List.of();
+    }
+
+    /**
+     * Obtiene un mapa con el total de gastos por categoría.
+     *
+     * @return Mapa de Categoría -> Total Gasto.
+     */
+    public java.util.Map<String, Double> getExpensesByCategory() {
+        java.util.Map<String, Double> expenses = new java.util.HashMap<>();
+        if (currentData != null) {
+            for (Transaction t : currentData.getTransactions()) {
+                if ("Gasto".equals(t.getType())) {
+                    expenses.put(t.getCategory(), expenses.getOrDefault(t.getCategory(), 0.0) + t.getAmount());
+                }
+            }
+        }
+        return expenses;
     }
 }
