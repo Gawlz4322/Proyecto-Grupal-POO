@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="Se añade dependencia">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Controlador/AuthServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controlador/AuthServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Controlador/ContraseñaTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Controlador/ContraseñaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Modelo/UsuarioTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Modelo/UsuarioTest.java" afterDir="false" />
+    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/finances.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/finances.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,7 +121,7 @@
       <workItem from="1764336227903" duration="135000" />
       <workItem from="1764336376786" duration="11000" />
       <workItem from="1764336394648" duration="4000" />
-      <workItem from="1764975345093" duration="2130000" />
+      <workItem from="1764975345093" duration="2440000" />
     </task>
     <task id="LOCAL-00001" summary="Se eliminan comentarios excesivos, se dejan los más importantes.">
       <option name="closed" value="true" />
@@ -143,7 +139,47 @@
       <option name="project" value="LOCAL" />
       <updated>1764976778825</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Debugging pequeño">
+      <option name="closed" value="true" />
+      <created>1764977508379</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977508379</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Se realizan los tests definidos previamente.">
+      <option name="closed" value="true" />
+      <created>1764977601320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977601320</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Se realizan los tests de contraseña definidos previamente">
+      <option name="closed" value="true" />
+      <created>1764977622871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977622871</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Se realizan los tests de SistemaFinanzas definidos previamente">
+      <option name="closed" value="true" />
+      <created>1764977633930</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977633930</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)">
+      <option name="closed" value="true" />
+      <created>1764977658083</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977658083</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -152,6 +188,11 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Se eliminan comentarios excesivos, se dejan los más importantes." />
     <MESSAGE value="Se añade dependencia" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se añade dependencia" />
+    <MESSAGE value="Debugging pequeño" />
+    <MESSAGE value="Se realizan los tests definidos previamente." />
+    <MESSAGE value="Se realizan los tests de contraseña definidos previamente" />
+    <MESSAGE value="Se realizan los tests de SistemaFinanzas definidos previamente" />
+    <MESSAGE value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
   </component>
 </project>

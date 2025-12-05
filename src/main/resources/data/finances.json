@@ -9,5 +9,13 @@
       "Gasto (Comida): -$1.0",
       "Ingreso: +$2.0"
     ]
+  },
+  "admin": {
+    "userId": "admin",
+    "saldo": 1.231219E7,
+    "historial": [
+      "Gasto (Servicios): -$123.0",
+      "Ingreso: +$1.2312313E7"
+    ]
   }
 }
