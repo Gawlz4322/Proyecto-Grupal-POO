@@ -27,6 +27,13 @@
             <version>2.10.1</version>
         </dependency>
 
+        <!-- FlatLaf para UI moderna con tema oscuro -->
+        <dependency>
+            <groupId>com.formdev</groupId>
+            <artifactId>flatlaf</artifactId>
+            <version>3.2.5</version>
+        </dependency>
+
         <!-- JUnit 4 para tests existentes -->
         <dependency>
             <groupId>junit</groupId>
