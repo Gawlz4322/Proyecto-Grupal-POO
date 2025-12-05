@@ -1,6 +1,7 @@
 package Model;
 
 import Controller.FinanceStore;
+import java.util.Collections;
 import java.util.List;
 
 public class FinanceSystem {
@@ -43,6 +44,6 @@ public class FinanceSystem {
     }
 
     public List<String> getHistory() {
-        return currentData != null ? currentData.getHistory() : List.of();
+        return currentData != null ? currentData.getHistory() : Collections.emptyList();
     }
 }
