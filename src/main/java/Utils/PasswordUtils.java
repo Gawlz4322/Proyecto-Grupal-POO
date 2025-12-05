@@ -7,21 +7,12 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 
-/**
- * Utilidades para el manejo seguro de contraseñas.
- * Proporciona funciones para generar salt, hashear contraseñas y verificarlas.
- */
 public class PasswordUtils {
-    private static final int ITERATIONS = 65536;
+    private static final int ITERATIONS = 65536; // Iteraciones PBKDF2 para seguridad
     private static final int KEY_LENGTH = 256;
     private static final String ALGORITHM = "PBKDF2WithHmacSHA256";
 
-    /**
-     * Genera un salt aleatorio de la longitud especificada.
-     *
-     * @param length La longitud del salt en bytes.
-     * @return El salt codificado en Base64.
-     */
+    // Genera un salt aleatorio criptográficamente seguro
     public static String genSalt(int length) {
         SecureRandom random = new SecureRandom();
         byte[] salt = new byte[length];
@@ -29,13 +20,7 @@ public class PasswordUtils {
         return Base64.getEncoder().encodeToString(salt);
     }
 
-    /**
-     * Genera un hash de la contraseña utilizando PBKDF2.
-     *
-     * @param password La contraseña en texto plano.
-     * @param salt     El salt a utilizar.
-     * @return El hash de la contraseña codificado en Base64.
-     */
+    // Hashea contraseña usando PBKDF2 con 65536 iteraciones
     public static String hash(char[] password, String salt) {
         try {
             byte[] saltBytes = Base64.getDecoder().decode(salt);
@@ -49,24 +34,13 @@ public class PasswordUtils {
         }
     }
 
-    /**
-     * Verifica si una contraseña coincide con un hash y salt dados.
-     *
-     * @param password     La contraseña a verificar.
-     * @param salt         El salt utilizado para el hash original.
-     * @param expectedHash El hash esperado.
-     * @return true si la contraseña coincide, false en caso contrario.
-     */
+    // Verifica si una contraseña coincide con el hash almacenado
     public static boolean verify(char[] password, String salt, String expectedHash) {
         String actualHash = hash(password, salt);
         return actualHash.equals(expectedHash);
     }
 
-    /**
-     * Limpia un array de caracteres de la memoria sobrescribiéndolo con nulos.
-     *
-     * @param password El array de caracteres a limpiar.
-     */
+    // Limpia el array de contraseña de la memoria
     public static void zero(char[] password) {
         if (password != null) {
             java.util.Arrays.fill(password, '\0');
