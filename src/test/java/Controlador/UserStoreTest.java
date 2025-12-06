@@ -100,4 +100,24 @@ public class UserStoreTest {
         // Then: Optional.empty() should be returned
         assertFalse("Should not find non-existent user", found.isPresent());
     }
+
+    @Test
+    public void testUsernameIsCaseInsensitive() {
+        // Given: A UserStore with a user saved with mixed case username
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User user = new User("Miguel", "hash789", "salt789");
+        store.saveNew(user);
+
+        // When: Searching with different case variations
+        Optional<User> foundLower = store.findByUsername("miguel");
+        Optional<User> foundUpper = store.findByUsername("MIGUEL");
+        Optional<User> foundMixed = store.findByUsername("MiGuEl");
+
+        // Then: All variations should find the same user
+        assertTrue("Should find user with lowercase", foundLower.isPresent());
+        assertTrue("Should find user with uppercase", foundUpper.isPresent());
+        assertTrue("Should find user with mixed case", foundMixed.isPresent());
+        assertEquals("All should be the same user", foundLower.get().getUsername(),
+                foundUpper.get().getUsername());
+    }
 }
