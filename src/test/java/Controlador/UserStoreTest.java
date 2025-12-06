@@ -88,4 +88,16 @@ public class UserStoreTest {
         assertTrue("User should be found", found.isPresent());
         assertEquals("Username should match", "john_doe", found.get().getUsername());
     }
+
+    @Test
+    public void testFindNonExistentUserReturnsEmpty() {
+        // Given: A UserStore without any users
+        UserStore store = new UserStore(TEST_USER_FILE);
+
+        // When: Searching for a non-existent user
+        Optional<User> found = store.findByUsername("nonexistent");
+
+        // Then: Optional.empty() should be returned
+        assertFalse("Should not find non-existent user", found.isPresent());
+    }
 }
