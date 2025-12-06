@@ -44,4 +44,18 @@ public class UserStoreTest {
         assertNotNull("UserStore should be created", store);
         assertTrue("listAll should return empty list", store.listAll().isEmpty());
     }
+
+    @Test
+    public void testDataDirectoryIsCreatedIfNotExists() {
+        // Given: A file path where the parent directory doesn't exist
+        Path testDir = Paths.get(TEST_DATA_DIR);
+        assertFalse("Test directory should not exist initially", Files.exists(testDir));
+
+        // When: Creating a UserStore with this path
+        UserStore store = new UserStore(TEST_USER_FILE);
+
+        // Then: The parent directory should be created automatically
+        assertTrue("Data directory should be created", Files.exists(testDir));
+        assertTrue("Data directory should be a directory", Files.isDirectory(testDir));
+    }
 }
