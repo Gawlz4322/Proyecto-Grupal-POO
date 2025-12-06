@@ -2,6 +2,7 @@ package Controlador;
 
 import Utils.InstantAdapter;
 import com.google.gson.JsonElement;
+import com.google.gson.JsonParseException;
 import com.google.gson.JsonPrimitive;
 import org.junit.Test;
 
@@ -26,5 +27,15 @@ public class InstantAdapterTest {
         JsonPrimitive primitive = result.getAsJsonPrimitive();
         assertTrue("Result should be a string", primitive.isString());
         assertEquals("Serialized value should match ISO-8601 format", "2023-05-15T10:30:00Z", primitive.getAsString());
+    }
+
+    @Test(expected = JsonParseException.class)
+    public void testDeserializationWithInvalidJsonFormatThrowsException() {
+        // Given: An invalid JSON string (not in ISO-8601 format)
+        JsonElement jsonElement = new JsonPrimitive("invalid-date-format");
+
+        // When: Attempting to deserialize invalid JSON
+        // Then: Should throw JsonParseException
+        adapter.deserialize(jsonElement, Instant.class, null);
     }
 }
