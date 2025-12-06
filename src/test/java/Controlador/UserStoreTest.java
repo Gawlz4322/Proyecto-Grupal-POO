@@ -192,4 +192,19 @@ public class UserStoreTest {
         // Then: Should throw IllegalArgumentException
         store.saveNew(new User("duplicate", "hash2", "salt2"));
     }
+
+    @Test
+    public void testJsonFileIsCreatedCorrectly() {
+        // Given: A UserStore and a new user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User user = new User("jsonuser", "jsonHash", "jsonSalt");
+
+        // When: Saving the user
+        store.saveNew(user);
+
+        // Then: The JSON file should be created
+        Path jsonFile = Paths.get(TEST_USER_FILE);
+        assertTrue("JSON file should exist", Files.exists(jsonFile));
+        assertTrue("JSON file should be a regular file", Files.isRegularFile(jsonFile));
+    }
 }
