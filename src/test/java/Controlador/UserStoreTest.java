@@ -58,4 +58,18 @@ public class UserStoreTest {
         assertTrue("Data directory should be created", Files.exists(testDir));
         assertTrue("Data directory should be a directory", Files.isDirectory(testDir));
     }
+
+    @Test
+    public void testSaveNewUser() {
+        // Given: A UserStore and a new user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User newUser = new User("testuser", "hashedPassword123", "salt123");
+
+        // When: Saving the new user
+        store.saveNew(newUser);
+
+        // Then: The user should exist in the store
+        assertTrue("User should exist after saving", store.exists("testuser"));
+        assertEquals("List should contain 1 user", 1, store.listAll().size());
+    }
 }
