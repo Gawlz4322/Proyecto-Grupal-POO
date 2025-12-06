@@ -7,6 +7,7 @@ import com.google.gson.JsonPrimitive;
 import org.junit.Test;
 
 import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 
 import static org.junit.Assert.*;
 
@@ -64,5 +65,19 @@ public class InstantAdapterTest {
         // Then: The value should be preserved correctly
         assertEquals("Past date should be serialized and deserialized correctly", pastDate, deserialized);
         assertEquals("Serialized format should be ISO-8601", "2000-01-01T00:00:00Z", serialized.getAsString());
+    }
+
+    @Test
+    public void testWithPresentDate() {
+        // Given: An Instant representing the current time (truncated to seconds for
+        // consistency)
+        Instant now = Instant.now().truncatedTo(ChronoUnit.SECONDS);
+
+        // When: Serializing and deserializing
+        JsonElement serialized = adapter.serialize(now, Instant.class, null);
+        Instant deserialized = adapter.deserialize(serialized, Instant.class, null);
+
+        // Then: The current time should be preserved correctly
+        assertEquals("Present date should be serialized and deserialized correctly", now, deserialized);
     }
 }
