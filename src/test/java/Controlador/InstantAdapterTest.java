@@ -4,7 +4,6 @@ import org.junit.Test;
 
 public class InstantAdapterTest {
 
-
     // hacer test de que el formato JSON es correcto
     // hacer test de que el formato JSON es incorrecto
 
