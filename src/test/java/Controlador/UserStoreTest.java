@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.List;
 import java.util.Optional;
 
 import static org.junit.Assert.*;
@@ -164,5 +165,20 @@ public class UserStoreTest {
         assertTrue("User should still exist", updated.isPresent());
         assertEquals("Password hash should be updated", "newHash", updated.get().getPasswordHash());
         assertEquals("Salt should be updated", "newSalt", updated.get().getSalt());
+    }
+
+    @Test
+    public void testListAllUsers() {
+        // Given: A UserStore with multiple users
+        UserStore store = new UserStore(TEST_USER_FILE);
+        store.saveNew(new User("user1", "hash1", "salt1"));
+        store.saveNew(new User("user2", "hash2", "salt2"));
+        store.saveNew(new User("user3", "hash3", "salt3"));
+
+        // When: Listing all users
+        List<User> allUsers = store.listAll();
+
+        // Then: All users should be returned
+        assertEquals("Should have 3 users", 3, allUsers.size());
     }
 }
