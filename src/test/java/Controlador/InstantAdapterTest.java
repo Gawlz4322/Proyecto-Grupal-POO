@@ -51,4 +51,18 @@ public class InstantAdapterTest {
         // Then: The deserialized value should equal the original
         assertEquals("Round-trip serialization should preserve the value", original, deserialized);
     }
+
+    @Test
+    public void testWithPastDate() {
+        // Given: An Instant representing a date in the past
+        Instant pastDate = Instant.parse("2000-01-01T00:00:00Z");
+
+        // When: Serializing and deserializing
+        JsonElement serialized = adapter.serialize(pastDate, Instant.class, null);
+        Instant deserialized = adapter.deserialize(serialized, Instant.class, null);
+
+        // Then: The value should be preserved correctly
+        assertEquals("Past date should be serialized and deserialized correctly", pastDate, deserialized);
+        assertEquals("Serialized format should be ISO-8601", "2000-01-01T00:00:00Z", serialized.getAsString());
+    }
 }
