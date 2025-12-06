@@ -207,4 +207,20 @@ public class UserStoreTest {
         assertTrue("JSON file should exist", Files.exists(jsonFile));
         assertTrue("JSON file should be a regular file", Files.isRegularFile(jsonFile));
     }
+
+    @Test
+    public void testLoadUsersFromJsonFile() {
+        // Given: A UserStore with saved users
+        UserStore store1 = new UserStore(TEST_USER_FILE);
+        store1.saveNew(new User("user_a", "hashA", "saltA"));
+        store1.saveNew(new User("user_b", "hashB", "saltB"));
+
+        // When: Creating a new UserStore instance with the same file path
+        UserStore store2 = new UserStore(TEST_USER_FILE);
+
+        // Then: The new instance should load all users from the JSON file
+        assertEquals("Should load 2 users from file", 2, store2.listAll().size());
+        assertTrue("Should find user_a", store2.exists("user_a"));
+        assertTrue("Should find user_b", store2.exists("user_b"));
+    }
 }
