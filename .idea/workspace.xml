@@ -4,10 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="usuario admin para testeo rápido">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" afterDir="false" />
+    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="Debugging">
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/AuthService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/FinanceStore$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/FinanceStore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/LoginController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/MenuController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/RegisterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserStore$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Controller/UserStore.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FinanceData.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Transaction.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/InstantAdapter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Utils/PasswordUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/CardPanel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/HistoryWindow$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/HistoryWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/LoginWindow.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/MainMenu.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/View/RegisterWindow.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +142,7 @@
       <workItem from="1764336227903" duration="135000" />
       <workItem from="1764336376786" duration="11000" />
       <workItem from="1764336394648" duration="4000" />
-      <workItem from="1764975345093" duration="8598000" />
+      <workItem from="1764975345093" duration="8923000" />
     </task>
     <task id="LOCAL-00001" summary="Se eliminan comentarios excesivos, se dejan los más importantes.">
       <option name="closed" value="true" />
@@ -190,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764977842777</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Debugging">
+      <option name="closed" value="true" />
+      <created>1764986452161</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1764986452161</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -205,6 +231,7 @@
     <MESSAGE value="Se realizan los tests de SistemaFinanzas definidos previamente" />
     <MESSAGE value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
     <MESSAGE value="usuario admin para testeo rápido" />
-    <option name="LAST_COMMIT_MESSAGE" value="usuario admin para testeo rápido" />
+    <MESSAGE value="Debugging" />
+    <option name="LAST_COMMIT_MESSAGE" value="Debugging" />
   </component>
 </project>
