@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)">
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/finances.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/finances.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/users.json" afterDir="false" />
+    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="usuario admin para testeo rápido">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Model/FinanceSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/Modelo/SistemaFinanzasTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,32 +43,34 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;Maven.Proyecto-Grupal-POO [compile].executor&quot;: &quot;Run&quot;,
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Roberto/IdeaProjects/Proyecto-Grupal-POO/pom.xml&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable&quot;,
-    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.AuthServiceTest.executor": "Run",
+    "Maven.Proyecto-Grupal-POO [compile].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "git-widget-placeholder": "master",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Roberto/IdeaProjects/Proyecto-Grupal-POO/pom.xml",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "com.intellij.platform.ide.impl.presentationAssistant.PresentationAssistantConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration default="true" type="JetRunConfigurationType">
       <module name="Proyecto-Grupal-POO" />
@@ -121,7 +124,7 @@
       <workItem from="1764336227903" duration="135000" />
       <workItem from="1764336376786" duration="11000" />
       <workItem from="1764336394648" duration="4000" />
-      <workItem from="1764975345093" duration="2440000" />
+      <workItem from="1764975345093" duration="8598000" />
     </task>
     <task id="LOCAL-00001" summary="Se eliminan comentarios excesivos, se dejan los más importantes.">
       <option name="closed" value="true" />
@@ -179,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764977658083</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="usuario admin para testeo rápido">
+      <option name="closed" value="true" />
+      <created>1764977842777</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977842777</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -193,6 +204,7 @@
     <MESSAGE value="Se realizan los tests de contraseña definidos previamente" />
     <MESSAGE value="Se realizan los tests de SistemaFinanzas definidos previamente" />
     <MESSAGE value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
+    <MESSAGE value="usuario admin para testeo rápido" />
+    <option name="LAST_COMMIT_MESSAGE" value="usuario admin para testeo rápido" />
   </component>
 </project>

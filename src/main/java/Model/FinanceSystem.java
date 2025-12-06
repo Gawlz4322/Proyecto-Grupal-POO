@@ -49,7 +49,7 @@ public class FinanceSystem {
      * @return Lista de transacciones, o lista vacía si no hay usuario.
      */
     public List<Transaction> getHistory() {
-        return currentData != null ? currentData.getTransactions() : List.of();
+        return currentData != null ? currentData.getTransactions() : Collections.emptyList();
     }
 
     /**
