@@ -80,4 +80,32 @@ public class InstantAdapterTest {
         // Then: The current time should be preserved correctly
         assertEquals("Present date should be serialized and deserialized correctly", now, deserialized);
     }
+
+    @Test
+    public void testWithFutureDate() {
+        // Given: An Instant representing a date in the future
+        Instant futureDate = Instant.parse("2050-12-31T23:59:59Z");
+
+        // When: Serializing and deserializing
+        JsonElement serialized = adapter.serialize(futureDate, Instant.class, null);
+        Instant deserialized = adapter.deserialize(serialized, Instant.class, null);
+
+        // Then: The future date should be preserved correctly
+        assertEquals("Future date should be serialized and deserialized correctly", futureDate, deserialized);
+        assertEquals("Serialized format should be ISO-8601", "2050-12-31T23:59:59Z", serialized.getAsString());
+    }
+
+    @Test
+    public void testWithEpochTime() {
+        // Given: An Instant representing the Unix epoch (1970-01-01T00:00:00Z)
+        Instant epoch = Instant.EPOCH;
+
+        // When: Serializing and deserializing
+        JsonElement serialized = adapter.serialize(epoch, Instant.class, null);
+        Instant deserialized = adapter.deserialize(serialized, Instant.class, null);
+
+        // Then: Epoch time should be preserved correctly
+        assertEquals("Epoch time should be serialized and deserialized correctly", epoch, deserialized);
+        assertEquals("Serialized epoch should be in ISO-8601 format", "1970-01-01T00:00:00Z", serialized.getAsString());
+    }
 }

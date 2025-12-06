@@ -7,7 +7,7 @@ Este software es una aplicación de escritorio en Java que permite llevar un reg
 ## Integrantes
 - **Roberto Herrera:** Arquitectura MVC, refactorización y lógica del sistema.
 - **Miguel Díaz:** Persistencia de datos (JSON) y seguridad (Hashing).
-- **Benyasmín Sanhueza:** Desarrollo integral de la Interfaz Gráfica (Swing), Diseño UX/UI, Validaciones de sistema y QA (Aseguramiento de Calidad).
+- **Benyasmín Sanhueza:** Desarrollo integral de la Interfaz Gráfica (Swing), Diseño UX/UI, Validaciones de sistema.
 
 ## Funcionalidades
 La aplicación permite:
@@ -32,13 +32,3 @@ El código sigue el patrón **Modelo-Vista-Controlador (MVC)**:
 *   `View`: Ventanas y paneles (`MainMenu`, `LoginWindow`).
 *   `Controller`: Lógica que conecta la vista con el modelo (`AuthService`, `MenuController`).
 
-## Ejecución
-Para compilar y correr el proyecto, es necesario tener las librerías en la carpeta `lib`.
-
-**Comandos para compilar y ejecutar (Windows):**
-
-```cmd
-dir /b /s src\main\java\*.java > sources.txt
-javac -cp "lib/*" @sources.txt
-java -cp "lib/*;src/main/java" Main
-```

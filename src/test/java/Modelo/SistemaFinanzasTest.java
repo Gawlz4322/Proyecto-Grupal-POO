@@ -3,6 +3,7 @@ package Modelo;
 import Controller.FinanceStore;
 import Model.FinanceData;
 import Model.FinanceSystem;
+import Model.Transaction;
 import Model.User;
 import org.junit.Before;
 import org.junit.Test;
@@ -113,7 +114,7 @@ public class SistemaFinanzasTest {
         financeSystem.addIncome(500.0);
         financeSystem.addExpense(100.0, "Comida");
 
-        List<String> historial = financeSystem.getHistory();
+        List<Transaction> historial = financeSystem.getHistory();
 
         assertNotNull("El historial no debe ser null", historial);
         assertEquals("El historial debe tener 2 entradas", 2, historial.size());
@@ -124,12 +125,14 @@ public class SistemaFinanzasTest {
         financeSystem.addIncome(500.0);
         financeSystem.addExpense(100.0, "Comida");
 
-        List<String> historial = financeSystem.getHistory();
+        List<Transaction> historial = financeSystem.getHistory();
 
-        assertTrue("El ingreso debe tener el formato correcto",
-                historial.get(0).contains("Ingreso: +$500"));
-        assertTrue("El gasto debe tener el formato correcto",
-                historial.get(1).contains("Gasto (Comida): -$100"));
+        assertEquals("El primer registro debe ser un Ingreso", "Ingreso", historial.get(0).getType());
+        assertEquals("El monto del ingreso debe ser correcto", 500.0, historial.get(0).getAmount(), 0.001);
+
+        assertEquals("El segundo registro debe ser un Gasto", "Gasto", historial.get(1).getType());
+        assertEquals("La categoría del gasto debe ser Comida", "Comida", historial.get(1).getCategory());
+        assertEquals("El monto del gasto debe ser correcto", 100.0, historial.get(1).getAmount(), 0.001);
     }
 
     @Test
@@ -147,7 +150,7 @@ public class SistemaFinanzasTest {
         financeSystem.addIncome(100.0);
         financeSystem.addExpense(50.0, "Test");
 
-        List<String> historial = financeSystem.getHistory();
+        List<Transaction> historial = financeSystem.getHistory();
 
         assertNotNull("getHistory no debe devolver null", historial);
         assertTrue("getHistory debe devolver una lista", historial instanceof List);
@@ -159,7 +162,7 @@ public class SistemaFinanzasTest {
         User nuevoUsuario = new User("usuarionuevo", "hash", "salt");
         financeSystem.login(nuevoUsuario);
 
-        List<String> historial = financeSystem.getHistory();
+        List<Transaction> historial = financeSystem.getHistory();
 
         assertNotNull("El historial no debe ser null", historial);
         assertEquals("El historial debe estar vacío al inicio", 0, historial.size());
