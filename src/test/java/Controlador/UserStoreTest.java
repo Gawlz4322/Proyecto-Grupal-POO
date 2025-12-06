@@ -146,4 +146,23 @@ public class UserStoreTest {
         // Then: exists() should return false
         assertFalse("exists should return false for non-existent user", exists);
     }
+
+    @Test
+    public void testUpdateExistingUser() {
+        // Given: A UserStore with an existing user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User user = new User("updateuser", "oldHash", "oldSalt");
+        store.saveNew(user);
+
+        // When: Updating the user with new password hash and salt
+        user.setPasswordHash("newHash");
+        user.setSalt("newSalt");
+        store.update(user);
+
+        // Then: The updated information should be persisted
+        Optional<User> updated = store.findByUsername("updateuser");
+        assertTrue("User should still exist", updated.isPresent());
+        assertEquals("Password hash should be updated", "newHash", updated.get().getPasswordHash());
+        assertEquals("Salt should be updated", "newSalt", updated.get().getSalt());
+    }
 }
