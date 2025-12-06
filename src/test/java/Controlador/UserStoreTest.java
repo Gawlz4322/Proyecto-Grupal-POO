@@ -181,4 +181,15 @@ public class UserStoreTest {
         // Then: All users should be returned
         assertEquals("Should have 3 users", 3, allUsers.size());
     }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void testCannotSaveDuplicateUser() {
+        // Given: A UserStore with an existing user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        store.saveNew(new User("duplicate", "hash1", "salt1"));
+
+        // When: Attempting to save another user with the same username
+        // Then: Should throw IllegalArgumentException
+        store.saveNew(new User("duplicate", "hash2", "salt2"));
+    }
 }
