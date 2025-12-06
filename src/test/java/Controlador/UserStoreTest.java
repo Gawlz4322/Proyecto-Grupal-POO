@@ -120,4 +120,18 @@ public class UserStoreTest {
         assertEquals("All should be the same user", foundLower.get().getUsername(),
                 foundUpper.get().getUsername());
     }
+
+    @Test
+    public void testExistsReturnsTrueWhenUserExists() {
+        // Given: A UserStore with a saved user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User user = new User("existinguser", "hashABC", "saltABC");
+        store.saveNew(user);
+
+        // When: Checking if the user exists
+        boolean exists = store.exists("existinguser");
+
+        // Then: exists() should return true
+        assertTrue("exists should return true for existing user", exists);
+    }
 }
