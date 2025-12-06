@@ -141,6 +141,9 @@
                     <windowtitle>Control de Finanzas Personales - API Documentation</windowtitle>
                     <doctitle>Control de Finanzas Personales</doctitle>
                     <bottom>Copyright © 2024. All Rights Reserved.</bottom>
+                    <doclint>none</doclint>
+                    <failOnError>false</failOnError>
+                    <additionalOptions>-Xdoclint:none</additionalOptions>
                 </configuration>
                 <executions>
                     <execution>
