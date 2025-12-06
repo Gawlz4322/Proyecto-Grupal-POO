@@ -38,4 +38,17 @@ public class InstantAdapterTest {
         // Then: Should throw JsonParseException
         adapter.deserialize(jsonElement, Instant.class, null);
     }
+
+    @Test
+    public void testSerializeAndDeserializeReturnsSameValue() {
+        // Given: An original Instant
+        Instant original = Instant.parse("2024-01-20T15:45:30Z");
+
+        // When: Serializing and then deserializing
+        JsonElement serialized = adapter.serialize(original, Instant.class, null);
+        Instant deserialized = adapter.deserialize(serialized, Instant.class, null);
+
+        // Then: The deserialized value should equal the original
+        assertEquals("Round-trip serialization should preserve the value", original, deserialized);
+    }
 }
