@@ -11,6 +11,10 @@ import View.RegisterWindow;
 
 import javax.swing.SwingUtilities;
 
+/**
+ * Clase principal de la aplicación.
+ * Inicializa los componentes, configura el tema y lanza la interfaz gráfica.
+ */
 public class Main {
     public static void main(String[] args) {
         String userDbPath = "src/main/resources/data/users.json";

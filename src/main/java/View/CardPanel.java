@@ -11,6 +11,9 @@ import java.awt.*;
 public class CardPanel extends JPanel {
     private final int arc = 20;
 
+    /**
+     * Constructor del panel tipo tarjeta.
+     */
     public CardPanel() {
         super(new BorderLayout());
         setOpaque(false);

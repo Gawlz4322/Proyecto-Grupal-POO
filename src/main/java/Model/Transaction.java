@@ -41,6 +41,11 @@ public class Transaction {
         return description;
     }
 
+    /**
+     * Devuelve una representación en cadena de la transacción.
+     * 
+     * @return Cadena con detalles de la transacción.
+     */
     @Override
     public String toString() {
         return String.format("%s: $%.2f (%s) - %s", type, amount, category, date);

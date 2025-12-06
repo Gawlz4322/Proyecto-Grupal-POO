@@ -3,6 +3,9 @@ package View;
 import Controller.LoginController;
 import javax.swing.*;
 
+/**
+ * Ventana de inicio de sesión de la aplicación.
+ */
 public class LoginWindow {
     private final JFrame frame = new JFrame("Control de Finanzas Personales (CFP)");
     private final JLabel lblUsuario = new JLabel("Usuario:");
@@ -14,6 +17,11 @@ public class LoginWindow {
     private final LoginController controller;
     private RegisterWindow registerWindow;
 
+    /**
+     * Constructor de la ventana de login.
+     *
+     * @param controller Controlador de login asociado.
+     */
     public LoginWindow(LoginController controller) {
         this.controller = controller;
         initLoginWindow();
@@ -53,6 +61,9 @@ public class LoginWindow {
         btnRegistrarse.setVisible(true);
     }
 
+    /**
+     * Muestra la ventana de login.
+     */
     public void showWindow() {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -61,10 +72,16 @@ public class LoginWindow {
         frame.setVisible(true);
     }
 
+    /**
+     * Cierra la ventana de login.
+     */
     public void closeWindow() {
         frame.dispose();
     }
 
+    /**
+     * Limpia el campo de contraseña.
+     */
     public void clearPassword() {
         txtClave.setText("");
     }
@@ -77,6 +94,11 @@ public class LoginWindow {
         return new String(txtClave.getPassword());
     }
 
+    /**
+     * Establece la ventana de registro asociada para navegación.
+     *
+     * @param registerWindow Instancia de la ventana de registro.
+     */
     public void setRegisterWindow(RegisterWindow registerWindow) {
         this.registerWindow = registerWindow;
     }

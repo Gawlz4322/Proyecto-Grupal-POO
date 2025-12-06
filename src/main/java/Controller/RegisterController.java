@@ -5,20 +5,37 @@ import View.RegisterWindow;
 import javax.swing.JOptionPane;
 import java.util.Arrays;
 
+/**
+ * Controlador encargado de la lógica de registro de nuevos usuarios.
+ */
 public class RegisterController {
     private RegisterWindow view;
     private final AuthService authService;
     private final LoginWindow loginWindow;
 
+    /**
+     * Constructor del controlador de registro.
+     *
+     * @param authService Servicio de autenticación.
+     * @param loginWindow Ventana de login para volver tras el registro.
+     */
     public RegisterController(AuthService authService, LoginWindow loginWindow) {
         this.authService = authService;
         this.loginWindow = loginWindow;
     }
 
+    /**
+     * Establece la vista asociada a este controlador.
+     *
+     * @param view Ventana de registro.
+     */
     public void setView(RegisterWindow view) {
         this.view = view;
     }
 
+    /**
+     * Intenta registrar un nuevo usuario validando que las contraseñas coincidan.
+     */
     public void attemptRegister() {
         String username = view.getUsername();
         char[] password = view.getPassword();
@@ -53,6 +70,9 @@ public class RegisterController {
         }
     }
 
+    /**
+     * Cancela el registro y vuelve a la pantalla de inicio de sesión.
+     */
     public void returnToLogin() {
         view.clearFields();
         view.closeWindow();

@@ -5,11 +5,17 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.util.List;
 
+/**
+ * Ventana que muestra la tabla con el historial de todas las transacciones.
+ */
 public class HistoryWindow {
     private final JFrame frame = new JFrame("Historial de Transacciones");
     private final JTable table;
     private final DefaultTableModel tableModel;
 
+    /**
+     * Constructor de la ventana de historial.
+     */
     public HistoryWindow() {
         String[] columnNames = { "Tipo", "Categoría", "Monto" };
         tableModel = new DefaultTableModel(columnNames, 0) {
@@ -49,6 +55,9 @@ public class HistoryWindow {
         }
     }
 
+    /**
+     * Muestra la ventana de historial.
+     */
     public void showWindow() {
         frame.setVisible(true);
     }

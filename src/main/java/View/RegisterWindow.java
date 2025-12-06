@@ -4,6 +4,9 @@ import Controller.RegisterController;
 
 import javax.swing.*;
 
+/**
+ * Ventana de registro de nuevos usuarios en la aplicación.
+ */
 public class RegisterWindow {
     private final JFrame frame = new JFrame("Registro - Control de Finanzas Personales");
     private final JLabel lblUsuario = new JLabel("Usuario:");
@@ -16,6 +19,11 @@ public class RegisterWindow {
     private final JButton btnVolver = new JButton("Volver al login");
     private final RegisterController controller;
 
+    /**
+     * Constructor de la ventana de registro.
+     *
+     * @param controller Controlador de registro asociado.
+     */
     public RegisterWindow(RegisterController controller) {
         this.controller = controller;
         this.controller.setView(this);
@@ -55,16 +63,25 @@ public class RegisterWindow {
         frame.getRootPane().setDefaultButton(btnRegistrar);
     }
 
+    /**
+     * Muestra la ventana de registro.
+     */
     public void showWindow() {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         frame.setVisible(true);
     }
 
+    /**
+     * Cierra la ventana de registro.
+     */
     public void closeWindow() {
         frame.dispose();
     }
 
+    /**
+     * Limpia los campos del formulario de registro.
+     */
     public void clearFields() {
         txtUsuario.setText("");
         txtClave.setText("");

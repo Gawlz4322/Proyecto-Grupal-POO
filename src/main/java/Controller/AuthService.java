@@ -3,12 +3,31 @@ package Controller;
 import Model.User;
 import Utils.PasswordUtils;
 
+/**
+ * Servicio de autenticación encargado de registrar, iniciar sesión y cambiar
+ * contraseñas de usuarios.
+ */
 public class AuthService {
     private final UserStore store;
 
+    /**
+     * Constructor del servicio de autenticación.
+     *
+     * @param store Almacenamiento de usuarios.
+     */
     public AuthService(UserStore store) {
         this.store = store;
     }
+
+    /**
+     * Registra un nuevo usuario en el sistema.
+     *
+     * @param username Nombre de usuario.
+     * @param password Contraseña del usuario.
+     * @return El usuario registrado.
+     * @throws IllegalArgumentException Si el usuario ya existe o los datos son
+     *                                  inválidos.
+     */
     public User register(String username, char[] password) {
         validateUsername(username);
         validatePassword(password);
@@ -26,6 +45,15 @@ public class AuthService {
             PasswordUtils.zero(password);
         }
     }
+
+    /**
+     * Inicia sesión con las credenciales proporcionadas.
+     *
+     * @param username Nombre de usuario.
+     * @param password Contraseña del usuario.
+     * @return El usuario autenticado.
+     * @throws IllegalArgumentException Si las credenciales son inválidas.
+     */
     public User login(String username, char[] password) {
         User u = store.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("Usuario o contraseña inválidos"));
@@ -37,7 +65,15 @@ public class AuthService {
         return u;
     }
 
-    // Cambia la contraseña de un usuario existente
+    /**
+     * Cambia la contraseña de un usuario existente.
+     *
+     * @param username Nombre de usuario.
+     * @param oldPass  Contraseña actual.
+     * @param newPass  Nueva contraseña.
+     * @throws IllegalArgumentException Si el usuario no existe o la contraseña
+     *                                  actual es incorrecta.
+     */
     public void changePassword(String username, char[] oldPass, char[] newPass) {
         User u = store.findByUsername(username)
                 .orElseThrow(() -> new IllegalArgumentException("Usuario no existe"));

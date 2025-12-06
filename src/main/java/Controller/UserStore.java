@@ -14,6 +14,9 @@ import java.text.Normalizer;
 import java.time.Instant;
 import java.util.*;
 
+/**
+ * Clase encargada de la persistencia de usuarios en formato JSON.
+ */
 public class UserStore {
     private final Path jsonPath;
     private final Gson gson = new GsonBuilder()
@@ -24,6 +27,11 @@ public class UserStore {
     }.getType();
     private final Map<String, User> byUsername = new HashMap<>();
 
+    /**
+     * Constructor del almacén de usuarios.
+     *
+     * @param filePath Ruta del archivo JSON de usuarios.
+     */
     public UserStore(String filePath) {
         this.jsonPath = Paths.get(filePath);
         ensureDataDirectory();
@@ -81,14 +89,32 @@ public class UserStore {
         }
     }
 
+    /**
+     * Busca un usuario por nombre de usuario.
+     *
+     * @param username Nombre de usuario a buscar.
+     * @return Optional conteniendo el usuario si existe.
+     */
     public synchronized Optional<User> findByUsername(String username) {
         return Optional.ofNullable(byUsername.get(keyOf(username)));
     }
 
+    /**
+     * Verifica si un nombre de usuario ya está registrado.
+     *
+     * @param username Nombre de usuario.
+     * @return true si existe, false si no.
+     */
     public synchronized boolean exists(String username) {
         return byUsername.containsKey(keyOf(username));
     }
 
+    /**
+     * Guarda un nuevo usuario.
+     *
+     * @param user Usuario a guardar.
+     * @throws IllegalArgumentException Si el usuario ya existe.
+     */
     public synchronized void saveNew(User user) {
         String k = keyOf(user.getUsername());
         if (byUsername.containsKey(k))
@@ -97,11 +123,21 @@ public class UserStore {
         persist();
     }
 
+    /**
+     * Actualiza los datos de un usuario existente.
+     *
+     * @param user Usuario con datos actualizados.
+     */
     public synchronized void update(User user) {
         byUsername.put(keyOf(user.getUsername()), user);
         persist();
     }
 
+    /**
+     * Lista todos los usuarios registrados.
+     *
+     * @return Lista de todos los usuarios.
+     */
     public synchronized List<User> listAll() {
         return new ArrayList<>(byUsername.values());
     }

@@ -12,6 +12,9 @@ import java.nio.file.*;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Clase encargada de la persistencia de datos financieros en un archivo JSON.
+ */
 public class FinanceStore {
     private final Path jsonPath;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -19,6 +22,11 @@ public class FinanceStore {
     private static final Type MAP_TYPE = new TypeToken<Map<String, FinanceData>>() {
     }.getType();
 
+    /**
+     * Constructor del almacén de finanzas.
+     *
+     * @param filePath Ruta del archivo JSON donde se guardarán los datos.
+     */
     public FinanceStore(String filePath) {
         this.jsonPath = Paths.get(filePath);
         ensureDataDirectory();
@@ -63,10 +71,21 @@ public class FinanceStore {
         }
     }
 
+    /**
+     * Carga los datos financieros de un usuario específico.
+     *
+     * @param userId Identificador del usuario.
+     * @return Datos financieros del usuario (crea nuevos si no existen).
+     */
     public synchronized FinanceData load(String userId) {
         return dataCache.computeIfAbsent(userId, FinanceData::new);
     }
 
+    /**
+     * Guarda los datos financieros actualizados de un usuario.
+     *
+     * @param data Datos financieros a guardar.
+     */
     public synchronized void save(FinanceData data) {
         dataCache.put(data.getUserId(), data);
         persist();

@@ -6,19 +6,35 @@ import View.MainMenu;
 import javax.swing.*;
 import java.util.List;
 
+/**
+ * Controlador para gestionar las interacciones en el menú principal.
+ */
 public class MenuController {
     private MainMenu view;
     private final FinanceSystem financeSystem;
 
+    /**
+     * Constructor del controlador del menú.
+     *
+     * @param financeSystem Sistema financiero subyacente.
+     */
     public MenuController(FinanceSystem financeSystem) {
         this.financeSystem = financeSystem;
     }
 
+    /**
+     * Establece la vista asociada a este controlador.
+     *
+     * @param view Ventana del menú principal.
+     */
     public void setView(MainMenu view) {
         this.view = view;
     }
 
-    // Maneja la adición de gastos con validación de monto y categoría
+    /**
+     * Maneja la solicitud de agregar un nuevo gasto.
+     * Solicita al usuario el monto y la categoría.
+     */
     public void handleExpense() {
         String expenseString = view.requestInput("Monto del gasto:");
         if (expenseString != null && !expenseString.isEmpty()) {
@@ -42,7 +58,10 @@ public class MenuController {
         }
     }
 
-    // Maneja la adición de ingresos con validación de monto
+    /**
+     * Maneja la solicitud de agregar un nuevo ingreso.
+     * Solicita al usuario el monto del ingreso.
+     */
     public void handleIncome() {
         String incomeString = view.requestInput("Monto del ingreso:");
         if (incomeString != null && !incomeString.isEmpty()) {
@@ -61,7 +80,9 @@ public class MenuController {
         view.updateBalanceDisplay(financeSystem.getBalance());
     }
 
-    // Muestra el historial de transacciones en una tabla
+    /**
+     * Muestra el historial de transacciones en una nueva ventana.
+     */
     public void handleHistory() {
         List<Model.Transaction> history = financeSystem.getHistory();
         if (history.isEmpty()) {
@@ -73,6 +94,9 @@ public class MenuController {
         }
     }
 
+    /**
+     * Actualiza la visualización del saldo en la vista principal.
+     */
     public void updateBalanceView() {
         view.updateBalanceDisplay(financeSystem.getBalance());
     }

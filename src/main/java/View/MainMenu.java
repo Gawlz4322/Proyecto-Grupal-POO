@@ -10,6 +10,10 @@ import java.awt.*;
  * Ventana del menú principal de la aplicación.
  * Diseño moderno y profesional utilizando FlatLaf, Cards y SVG Icons.
  */
+/**
+ * Ventana del menú principal de la aplicación.
+ * Diseño moderno y profesional utilizando FlatLaf, Cards y SVG Icons.
+ */
 public class MainMenu {
     private final JFrame frame = new JFrame("Control de Finanzas Personales");
     private final JLabel lblSaldo = new JLabel("$0");
@@ -21,6 +25,11 @@ public class MainMenu {
     private final Color TEXT_PRIMARY = new Color(236, 239, 244); // Blanco nieve
     private final Color TEXT_SECONDARY = new Color(216, 222, 233); // Gris claro
 
+    /**
+     * Constructor del menú principal.
+     *
+     * @param controller Controlador del menú.
+     */
     public MainMenu(MenuController controller) {
         this.controller = controller;
         this.controller.setView(this);
@@ -28,6 +37,11 @@ public class MainMenu {
         initComponents();
     }
 
+    /**
+     * Obtiene el componente raíz de la ventana (JFrame).
+     * 
+     * @return El JFrame principal.
+     */
     public Component getFrame() {
         return frame;
     }
@@ -137,6 +151,11 @@ public class MainMenu {
         return btn;
     }
 
+    /**
+     * Actualiza el saldo mostrado y refresca el gráfico.
+     * 
+     * @param balance Nuevo saldo a mostrar.
+     */
     public void updateBalanceDisplay(double balance) {
         // Formato para pesos chilenos (sin decimales)
         lblSaldo.setText("$" + String.format("%,.0f", balance));
@@ -187,16 +206,32 @@ public class MainMenu {
         chartPanelContainer.repaint();
     }
 
+    /**
+     * Muestra la ventana principal.
+     */
     public void showWindow() {
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         updateChart();
     }
 
+    /**
+     * Solicita una entrada de texto al usuario mediante un diálogo.
+     * 
+     * @param message Mensaje a mostrar.
+     * @return Texto ingresado por el usuario.
+     */
     public String requestInput(String message) {
         return JOptionPane.showInputDialog(frame, message);
     }
 
+    /**
+     * Solicita al usuario seleccionar una opción de una lista.
+     * 
+     * @param message Mensaje a mostrar.
+     * @param options Opciones disponibles.
+     * @return Opción seleccionada.
+     */
     public String requestOption(String message, String[] options) {
         return (String) JOptionPane.showInputDialog(frame, message, "Seleccionar", JOptionPane.QUESTION_MESSAGE, null,
                 options, options[0]);
