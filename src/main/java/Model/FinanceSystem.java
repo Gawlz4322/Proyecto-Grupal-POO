@@ -43,7 +43,6 @@ public class FinanceSystem {
         return currentData != null ? currentData.getBalance() : 0;
     }
 
-<<<<<<< HEAD
     /**
      * Obtiene el historial de transacciones del usuario.
      *
@@ -68,9 +67,5 @@ public class FinanceSystem {
             }
         }
         return expenses;
-=======
-    public List<String> getHistory() {
-        return currentData != null ? currentData.getHistory() : Collections.emptyList();
->>>>>>> 6d9acecfaddd34d9bba5d6a8d5965f2958148f2d
     }
 }
