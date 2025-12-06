@@ -4,16 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/TODO" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/google_code_gson.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProyectoGrupal.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+    <list default="true" id="1fe72f6d-74c2-4718-85fe-cb0e022760cf" name="Changes" comment="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)">
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/finances.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/finances.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/data/users.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/data/users.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +51,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Correcciones&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Roberto/IdeaProjects/Proyecto-Grupal-POO/pom.xml&quot;,
@@ -75,6 +68,33 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="Proyecto-Grupal-POO" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="Proyecto-Grupal-POO" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="Python.FlaskServer">
+      <module name="Proyecto-Grupal-POO" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -101,10 +121,78 @@
       <workItem from="1764336227903" duration="135000" />
       <workItem from="1764336376786" duration="11000" />
       <workItem from="1764336394648" duration="4000" />
+      <workItem from="1764975345093" duration="2440000" />
     </task>
+    <task id="LOCAL-00001" summary="Se eliminan comentarios excesivos, se dejan los más importantes.">
+      <option name="closed" value="true" />
+      <created>1764976665896</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1764976665896</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Se añade dependencia">
+      <option name="closed" value="true" />
+      <created>1764976778825</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1764976778825</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Debugging pequeño">
+      <option name="closed" value="true" />
+      <created>1764977508379</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977508379</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Se realizan los tests definidos previamente.">
+      <option name="closed" value="true" />
+      <created>1764977601320</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977601320</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Se realizan los tests de contraseña definidos previamente">
+      <option name="closed" value="true" />
+      <created>1764977622871</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977622871</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Se realizan los tests de SistemaFinanzas definidos previamente">
+      <option name="closed" value="true" />
+      <created>1764977633930</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977633930</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)">
+      <option name="closed" value="true" />
+      <created>1764977658083</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1764977658083</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Se eliminan comentarios excesivos, se dejan los más importantes." />
+    <MESSAGE value="Se añade dependencia" />
+    <MESSAGE value="Debugging pequeño" />
+    <MESSAGE value="Se realizan los tests definidos previamente." />
+    <MESSAGE value="Se realizan los tests de contraseña definidos previamente" />
+    <MESSAGE value="Se realizan los tests de SistemaFinanzas definidos previamente" />
+    <MESSAGE value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se realizan los tests de Usuario definidos previamente (refactorización de  tests al inglés proximamente)" />
   </component>
 </project>

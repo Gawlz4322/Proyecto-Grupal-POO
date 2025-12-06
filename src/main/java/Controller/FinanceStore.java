@@ -12,10 +12,6 @@ import java.nio.file.*;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * Gestiona el almacenamiento y recuperación de datos financieros en un archivo
- * JSON.
- */
 public class FinanceStore {
     private final Path jsonPath;
     private final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -23,11 +19,6 @@ public class FinanceStore {
     private static final Type MAP_TYPE = new TypeToken<Map<String, FinanceData>>() {
     }.getType();
 
-    /**
-     * Inicializa el almacenamiento de finanzas.
-     *
-     * @param filePath Ruta al archivo JSON de finanzas.
-     */
     public FinanceStore(String filePath) {
         this.jsonPath = Paths.get(filePath);
         ensureDataDirectory();
@@ -72,22 +63,10 @@ public class FinanceStore {
         }
     }
 
-    /**
-     * Carga los datos financieros de un usuario.
-     * Si no existen datos, crea una nueva instancia.
-     *
-     * @param userId El ID del usuario.
-     * @return Los datos financieros del usuario.
-     */
     public synchronized FinanceData load(String userId) {
         return dataCache.computeIfAbsent(userId, FinanceData::new);
     }
 
-    /**
-     * Guarda los datos financieros de un usuario.
-     *
-     * @param data Los datos financieros a guardar.
-     */
     public synchronized void save(FinanceData data) {
         dataCache.put(data.getUserId(), data);
         persist();

@@ -4,10 +4,6 @@ import com.google.gson.annotations.SerializedName;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Contiene los datos financieros de un usuario específico.
- * Incluye el saldo actual y el historial de transacciones.
- */
 public class FinanceData {
     private String userId;
 
@@ -17,12 +13,6 @@ public class FinanceData {
     @SerializedName("transacciones")
     private List<Transaction> transactions;
 
-    /**
-     * Crea una nueva instancia de datos financieros para un usuario.
-     * Inicializa el saldo en 0 y el historial vacío.
-     *
-     * @param userId El ID del usuario asociado.
-     */
     public FinanceData(String userId) {
         this.userId = userId;
         this.balance = 0.0;

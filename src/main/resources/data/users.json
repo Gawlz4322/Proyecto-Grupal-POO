@@ -5,5 +5,12 @@
     "passwordHash": "tFFXh4q6WbFTLsz95R7s4veeyRvBmsk/X0dsqaKPp9M\u003d",
     "salt": "khp2Xxd5KgqdCE0nZN+hPg\u003d\u003d",
     "createdAt": "2025-11-28T17:31:16.806990200Z"
+  },
+  {
+    "id": "c8354ce7-cef3-46bc-bca6-775cf1c77cdb",
+    "username": "admin",
+    "passwordHash": "iL4BNISuHmXFIKmm6bq/xQN4s9ayApla/qpEXajFgCo\u003d",
+    "salt": "nT+36G67zYqRqtijjSbG4Q\u003d\u003d",
+    "createdAt": "2025-12-05T23:35:09.120851900Z"
   }
 ]
