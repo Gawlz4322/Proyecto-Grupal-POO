@@ -134,4 +134,16 @@ public class UserStoreTest {
         // Then: exists() should return true
         assertTrue("exists should return true for existing user", exists);
     }
+
+    @Test
+    public void testExistsReturnsFalseWhenUserDoesNotExist() {
+        // Given: A UserStore without the searched user
+        UserStore store = new UserStore(TEST_USER_FILE);
+
+        // When: Checking if a non-existent user exists
+        boolean exists = store.exists("nonexistentuser");
+
+        // Then: exists() should return false
+        assertFalse("exists should return false for non-existent user", exists);
+    }
 }
