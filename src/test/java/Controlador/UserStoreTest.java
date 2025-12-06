@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Optional;
 
 import static org.junit.Assert.*;
 
@@ -71,5 +72,20 @@ public class UserStoreTest {
         // Then: The user should exist in the store
         assertTrue("User should exist after saving", store.exists("testuser"));
         assertEquals("List should contain 1 user", 1, store.listAll().size());
+    }
+
+    @Test
+    public void testFindUserByUsername() {
+        // Given: A UserStore with a saved user
+        UserStore store = new UserStore(TEST_USER_FILE);
+        User user = new User("john_doe", "hash456", "salt456");
+        store.saveNew(user);
+
+        // When: Finding the user by username
+        Optional<User> found = store.findByUsername("john_doe");
+
+        // Then: The user should be found
+        assertTrue("User should be found", found.isPresent());
+        assertEquals("Username should match", "john_doe", found.get().getUsername());
     }
 }
